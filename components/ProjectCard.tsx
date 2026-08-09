@@ -18,8 +18,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   } = project;
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-[14px] border border-[#e5e7eb] bg-[#ffffff] transition-all duration-300 hover:border-[#d1d5db] hover:shadow-[0_0_40px_rgba(239,68,68,0.06)]">
-      <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-[#e5e7eb] bg-[#fafafa]">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-[20px] border border-[#e5e7eb] bg-[#ffffff] transition-all duration-500 hover:border-red-200 hover:bg-[#fffcfc] hover:shadow-2xl hover:shadow-red-500/10 hover:-translate-y-1">
+      {/* Gradient Top border on hover */}
+      <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-red-600 to-orange-400 opacity-0 transition-opacity duration-500 group-hover:opacity-100 z-10" />
+
+      <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-[#e5e7eb] bg-[#fafafa] transition-colors duration-500 group-hover:border-red-100">
         {image ? (
           <Image
             src={image}
@@ -43,7 +46,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="font-display text-[clamp(1.25rem,1.8vw,1.65rem)] font-medium leading-[1.2] tracking-[-0.01em] text-[#111111]">
+        <h3 className="font-display text-[clamp(1.25rem,1.8vw,1.65rem)] font-bold leading-[1.2] tracking-[-0.01em] text-[#111111] transition-colors duration-300 group-hover:text-red-600">
           {title}
         </h3>
         <p className="mt-2 text-sm leading-relaxed text-[#6b7280]">
@@ -53,9 +56,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         {features.length > 0 && (
           <ul className="mt-4 space-y-1.5">
             {features.map((f) => (
-              <li key={f} className="flex gap-2 text-sm text-[#6b7280]">
-                <span className="text-red-500" aria-hidden="true">
-                  ›
+              <li key={f} className="flex gap-2.5 text-sm text-[#6b7280] transition-colors duration-300 group-hover:text-[#374151]">
+                <span className="text-red-500 text-xs mt-0.5 transition-transform duration-300 group-hover:scale-110" aria-hidden="true">
+                  ✦
                 </span>
                 {f}
               </li>
@@ -67,7 +70,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {techStack.map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-[#e5e7eb] px-2.5 py-1 font-mono text-[0.7rem] text-[#6b7280]"
+              className="rounded-full border border-[#e5e7eb] bg-transparent px-3 py-1 font-mono text-[0.7rem] text-[#6b7280] transition-all duration-300 group-hover:border-red-200 group-hover:bg-red-50/50 group-hover:text-red-600"
             >
               {tech}
             </span>
