@@ -60,10 +60,27 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
-          <Button as="a" href={profile.resumeUrl} variant="secondary" download>
-            Resume
-          </Button>
+        <div className="relative group hidden md:block">
+          <Button variant="secondary" className="cursor-default">Resume</Button>
+          <div className="absolute right-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div className="w-32 flex flex-col rounded-[8px] border border-[#242832] bg-[#0F1115] p-1.5 shadow-xl">
+              <a
+                href={profile.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-2 text-sm font-mono text-[#8B909C] transition-colors hover:bg-[#181B22] hover:text-[#ECEDF0] rounded-[6px]"
+              >
+                View
+              </a>
+              <a
+                href={profile.resumeUrl}
+                download
+                className="px-3 py-2 text-sm font-mono text-[#8B909C] transition-colors hover:bg-[#181B22] hover:text-[#ECEDF0] rounded-[6px]"
+              >
+                Download
+              </a>
+            </div>
+          </div>
         </div>
 
         <button
@@ -107,15 +124,27 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <Button
-            as="a"
-            href={profile.resumeUrl}
-            variant="primary"
-            download
-            className="mt-2 w-full"
-          >
-            Resume
-          </Button>
+          <div className="mt-2 grid grid-cols-2 gap-3">
+            <Button
+              as="a"
+              href={profile.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="secondary"
+              className="w-full justify-center"
+            >
+              View
+            </Button>
+            <Button
+              as="a"
+              href={profile.resumeUrl}
+              variant="primary"
+              download
+              className="w-full justify-center"
+            >
+              Download
+            </Button>
+          </div>
         </nav>
       </div>
     </header>
