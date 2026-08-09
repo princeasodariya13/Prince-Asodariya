@@ -52,15 +52,15 @@ export default function IndexRail() {
             <span
               className={`h-[1px] transition-all duration-300 ${
                 isActive
-                  ? "w-8 bg-amber-400"
-                  : "w-4 bg-[#242832] group-hover:w-6 group-hover:bg-[#8B909C]"
+                  ? "w-8 bg-red-500"
+                  : "w-4 bg-[#e5e7eb] group-hover:w-6 group-hover:bg-[#6b7280]"
               }`}
             />
             <span
               className={`font-mono text-[0.65rem] tracking-wide transition-opacity duration-200 ${
                 isActive
-                  ? "text-amber-400 opacity-100"
-                  : "text-[#8B909C] opacity-0 group-hover:opacity-100"
+                  ? "text-red-500 opacity-100"
+                  : "text-[#6b7280] opacity-0 group-hover:opacity-100"
               }`}
             >
               {label}

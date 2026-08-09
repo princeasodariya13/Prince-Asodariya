@@ -68,43 +68,43 @@ export default function Contact() {
         <div className="mt-14 grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
           <Reveal>
             <div className="space-y-5 font-mono text-sm">
-              <p className="text-[#8B909C] text-base mb-8">
+              <p className="text-[#6b7280] text-base mb-8">
                 I&apos;m currently open to new opportunities. Whether you have
                 a project in mind or just want to say hi — my inbox is always
                 open.
               </p>
               <a
                 href={`mailto:${profile.email}`}
-                className="flex items-center gap-3 text-[#ECEDF0] transition-colors hover:text-amber-400 group"
+                className="flex items-center gap-3 text-[#111111] transition-colors hover:text-red-500 group"
               >
-                <span className="w-8 h-[1px] bg-[#242832] group-hover:bg-amber-400 transition-colors" />
+                <span className="w-8 h-[1px] bg-[#e5e7eb] group-hover:bg-red-500 transition-colors" />
                 {profile.email}
               </a>
               <a
                 href={profile.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-[#ECEDF0] transition-colors hover:text-amber-400 group"
+                className="flex items-center gap-3 text-[#111111] transition-colors hover:text-red-500 group"
               >
-                <span className="w-8 h-[1px] bg-[#242832] group-hover:bg-amber-400 transition-colors" />
+                <span className="w-8 h-[1px] bg-[#e5e7eb] group-hover:bg-red-500 transition-colors" />
                 GitHub ↗
               </a>
               <a
                 href={profile.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-[#ECEDF0] transition-colors hover:text-amber-400 group"
+                className="flex items-center gap-3 text-[#111111] transition-colors hover:text-red-500 group"
               >
-                <span className="w-8 h-[1px] bg-[#242832] group-hover:bg-amber-400 transition-colors" />
+                <span className="w-8 h-[1px] bg-[#e5e7eb] group-hover:bg-red-500 transition-colors" />
                 LinkedIn ↗
               </a>
               <a
                 href={(profile as any).instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-[#ECEDF0] transition-colors hover:text-amber-400 group"
+                className="flex items-center gap-3 text-[#111111] transition-colors hover:text-red-500 group"
               >
-                <span className="w-8 h-[1px] bg-[#242832] group-hover:bg-amber-400 transition-colors" />
+                <span className="w-8 h-[1px] bg-[#e5e7eb] group-hover:bg-red-500 transition-colors" />
                 Instagram ↗
               </a>
             </div>
@@ -115,7 +115,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="contact-name"
-                  className="mb-2 block font-mono text-sm text-[#8B909C]"
+                  className="mb-2 block font-mono text-sm text-[#6b7280]"
                 >
                   Name
                 </label>
@@ -128,11 +128,11 @@ export default function Contact() {
                   }
                   aria-invalid={!!errors.name}
                   aria-describedby={errors.name ? "name-error" : undefined}
-                  className="w-full rounded-[10px] border border-[#242832] bg-[#181B22] px-4 py-3 text-[#ECEDF0] outline-none transition-colors focus:border-amber-400 placeholder:text-[#5C606B]"
+                  className="w-full rounded-[10px] border border-[#e5e7eb] bg-[#ffffff] px-4 py-3 text-[#111111] outline-none transition-colors focus:border-red-500 placeholder:text-[#5C606B]"
                   placeholder="Your full name"
                 />
                 {errors.name && (
-                  <p id="name-error" className="mt-1.5 text-sm text-amber-400">
+                  <p id="name-error" className="mt-1.5 text-sm text-red-500">
                     {errors.name}
                   </p>
                 )}
@@ -141,7 +141,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="contact-email"
-                  className="mb-2 block font-mono text-sm text-[#8B909C]"
+                  className="mb-2 block font-mono text-sm text-[#6b7280]"
                 >
                   Email
                 </label>
@@ -154,13 +154,13 @@ export default function Contact() {
                   }
                   aria-invalid={!!errors.email}
                   aria-describedby={errors.email ? "email-error" : undefined}
-                  className="w-full rounded-[10px] border border-[#242832] bg-[#181B22] px-4 py-3 text-[#ECEDF0] outline-none transition-colors focus:border-amber-400 placeholder:text-[#5C606B]"
+                  className="w-full rounded-[10px] border border-[#e5e7eb] bg-[#ffffff] px-4 py-3 text-[#111111] outline-none transition-colors focus:border-red-500 placeholder:text-[#5C606B]"
                   placeholder="your@email.com"
                 />
                 {errors.email && (
                   <p
                     id="email-error"
-                    className="mt-1.5 text-sm text-amber-400"
+                    className="mt-1.5 text-sm text-red-500"
                   >
                     {errors.email}
                   </p>
@@ -170,7 +170,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="contact-message"
-                  className="mb-2 block font-mono text-sm text-[#8B909C]"
+                  className="mb-2 block font-mono text-sm text-[#6b7280]"
                 >
                   Message
                 </label>
@@ -185,13 +185,13 @@ export default function Contact() {
                   aria-describedby={
                     errors.message ? "message-error" : undefined
                   }
-                  className="w-full resize-none rounded-[10px] border border-[#242832] bg-[#181B22] px-4 py-3 text-[#ECEDF0] outline-none transition-colors focus:border-amber-400 placeholder:text-[#5C606B]"
+                  className="w-full resize-none rounded-[10px] border border-[#e5e7eb] bg-[#ffffff] px-4 py-3 text-[#111111] outline-none transition-colors focus:border-red-500 placeholder:text-[#5C606B]"
                   placeholder="Tell me about your project or opportunity…"
                 />
                 {errors.message && (
                   <p
                     id="message-error"
-                    className="mt-1.5 text-sm text-amber-400"
+                    className="mt-1.5 text-sm text-red-500"
                   >
                     {errors.message}
                   </p>
@@ -208,12 +208,12 @@ export default function Contact() {
 
               <div role="status" aria-live="polite">
                 {status === "success" && (
-                  <p className="text-sm text-amber-400">
+                  <p className="text-sm text-red-500">
                     ✓ Message sent — thanks for reaching out.
                   </p>
                 )}
                 {status === "error" && (
-                  <p className="text-sm text-amber-400">
+                  <p className="text-sm text-red-500">
                     Something went wrong. Please try again or email directly.
                   </p>
                 )}

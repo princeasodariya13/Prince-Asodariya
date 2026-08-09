@@ -18,8 +18,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   } = project;
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-[14px] border border-[#242832] bg-[#181B22] transition-all duration-300 hover:border-[#343A48] hover:shadow-[0_0_40px_rgba(240,180,41,0.06)]">
-      <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-[#242832] bg-[#14161C]">
+    <article className="group flex h-full flex-col overflow-hidden rounded-[14px] border border-[#e5e7eb] bg-[#ffffff] transition-all duration-300 hover:border-[#d1d5db] hover:shadow-[0_0_40px_rgba(240,180,41,0.06)]">
+      <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-[#e5e7eb] bg-[#14161C]">
         {image ? (
           <Image
             src={image}
@@ -31,7 +31,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         ) : (
           <div className="flex h-full w-full items-center justify-center">
             <div className="text-center">
-              <div className="text-3xl font-display font-semibold text-[#242832] group-hover:text-[#343A48] transition-colors duration-300">
+              <div className="text-3xl font-display font-semibold text-[#e5e7eb] group-hover:text-[#d1d5db] transition-colors duration-300">
                 {title.charAt(0)}
               </div>
               <div className="mt-2 font-mono text-[0.65rem] text-[#5C606B]">
@@ -43,18 +43,18 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="font-display text-[clamp(1.25rem,1.8vw,1.65rem)] font-medium leading-[1.2] tracking-[-0.01em] text-[#ECEDF0]">
+        <h3 className="font-display text-[clamp(1.25rem,1.8vw,1.65rem)] font-medium leading-[1.2] tracking-[-0.01em] text-[#111111]">
           {title}
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-[#8B909C]">
+        <p className="mt-2 text-sm leading-relaxed text-[#6b7280]">
           {description}
         </p>
 
         {features.length > 0 && (
           <ul className="mt-4 space-y-1.5">
             {features.map((f) => (
-              <li key={f} className="flex gap-2 text-sm text-[#8B909C]">
-                <span className="text-amber-400" aria-hidden="true">
+              <li key={f} className="flex gap-2 text-sm text-[#6b7280]">
+                <span className="text-red-500" aria-hidden="true">
                   ›
                 </span>
                 {f}
@@ -67,7 +67,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {techStack.map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-[#242832] px-2.5 py-1 font-mono text-[0.7rem] text-[#8B909C]"
+              className="rounded-full border border-[#e5e7eb] px-2.5 py-1 font-mono text-[0.7rem] text-[#6b7280]"
             >
               {tech}
             </span>
@@ -80,7 +80,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#ECEDF0] transition-colors hover:text-amber-400"
+              className="text-[#111111] transition-colors hover:text-red-500"
             >
               Code ↗
             </a>
@@ -97,7 +97,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#ECEDF0] transition-colors hover:text-amber-400"
+              className="text-[#111111] transition-colors hover:text-red-500"
             >
               Live ↗
             </a>
@@ -112,7 +112,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {isPlaceholder && (
-          <p className="mt-4 border-t border-[#242832] pt-4 font-mono text-[0.68rem] uppercase tracking-wide text-amber-400">
+          <p className="mt-4 border-t border-[#e5e7eb] pt-4 font-mono text-[0.68rem] uppercase tracking-wide text-red-500">
             Placeholder — add real details
           </p>
         )}

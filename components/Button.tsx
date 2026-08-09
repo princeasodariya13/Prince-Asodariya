@@ -3,13 +3,13 @@ import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 type Variant = "primary" | "secondary" | "ghost";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-mono text-[0.8rem] tracking-wide transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline-2 focus-visible:outline-amber-400 disabled:opacity-50 disabled:pointer-events-none cursor-pointer";
+  "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-mono text-[0.8rem] tracking-wide transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline-2 focus-visible:outline-red-500 disabled:opacity-50 disabled:pointer-events-none cursor-pointer";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-amber-400 text-gray-950 hover:bg-amber-300 font-semibold",
+  primary: "bg-red-500 text-white hover:bg-red-600 font-semibold",
   secondary:
-    "border border-[#242832] text-[#ECEDF0] hover:border-amber-400 hover:text-amber-400",
-  ghost: "text-[#8B909C] hover:text-[#ECEDF0]",
+    "border border-[#e5e7eb] text-[#111111] hover:border-red-500 hover:text-red-500",
+  ghost: "text-[#6b7280] hover:text-[#111111]",
 };
 
 interface ButtonAsButton extends ButtonHTMLAttributes<HTMLButtonElement> {

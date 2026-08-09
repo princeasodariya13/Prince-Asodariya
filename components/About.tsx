@@ -36,48 +36,48 @@ export default function About() {
 
         <div className="mt-14 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
           <Reveal delay={100}>
-            <p className="text-[clamp(1.05rem,1.3vw,1.2rem)] leading-[1.65] text-[#8B909C]">
+            <p className="text-[clamp(1.05rem,1.3vw,1.2rem)] leading-[1.65] text-[#6b7280]">
               I&apos;m a MERN Stack Developer passionate about building robust,
               scalable, and user-focused web applications from frontend to
               backend. I enjoy architecting seamless full-stack digital
               experiences while continuously learning modern technologies.
             </p>
-            <p className="mt-6 text-[clamp(0.95rem,1vw,1.0625rem)] leading-[1.7] text-[#8B909C]">
+            <p className="mt-6 text-[clamp(0.95rem,1vw,1.0625rem)] leading-[1.7] text-[#6b7280]">
               I specialize in building end-to-end applications using MongoDB,
               Express.js, React, and Node.js — architecting scalable backend
               APIs, designing seamless database schemas, and crafting dynamic,
               high-performance user interfaces.
             </p>
-            <p className="mt-4 text-[clamp(0.95rem,1vw,1.0625rem)] leading-[1.7] text-[#8B909C]">
+            <p className="mt-4 text-[clamp(0.95rem,1vw,1.0625rem)] leading-[1.7] text-[#6b7280]">
               When I&apos;m not coding, I enjoy drawing, bike riding, watching
               movies, and exploring peaceful sunset viewpoints.
             </p>
 
             {/* Achievement badge */}
-            <div className="mt-8 inline-flex items-center gap-3 rounded-[10px] border border-[#242832] bg-[#181B22] px-4 py-3">
-              <span className="text-amber-400 text-xl">🏆</span>
+            <div className="mt-8 inline-flex items-center gap-3 rounded-[10px] border border-[#e5e7eb] bg-[#ffffff] px-4 py-3">
+              <span className="text-red-500 text-xl">🏆</span>
               <div>
-                <p className="text-sm font-medium text-[#ECEDF0]">
+                <p className="text-sm font-medium text-[#111111]">
                   Top College Project — 1st Place
                 </p>
-                <p className="text-xs text-[#8B909C] font-mono mt-0.5">
+                <p className="text-xs text-[#6b7280] font-mono mt-0.5">
                   Indus Institute · Academic Excellence
                 </p>
               </div>
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 gap-px overflow-hidden rounded-[14px] border border-[#242832] bg-[#242832] sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-px overflow-hidden rounded-[14px] border border-[#e5e7eb] bg-[#e5e7eb] sm:grid-cols-2">
             {FOCUS_AREAS.map((area, i) => (
               <Reveal key={area.label} delay={120 + i * 60}>
-                <div className="h-full bg-[#181B22] p-6 transition-colors duration-200 hover:bg-[#1e2230]">
-                  <span className="font-mono text-[clamp(0.72rem,0.8vw,0.8rem)] text-amber-400">
+                <div className="h-full bg-[#ffffff] p-6 transition-colors duration-200 hover:bg-[#1e2230]">
+                  <span className="font-mono text-[clamp(0.72rem,0.8vw,0.8rem)] text-red-500">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="mt-3 font-display text-[1.02rem] font-medium text-[#ECEDF0]">
+                  <h3 className="mt-3 font-display text-[1.02rem] font-medium text-[#111111]">
                     {area.label}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[#8B909C]">
+                  <p className="mt-2 text-sm leading-relaxed text-[#6b7280]">
                     {area.detail}
                   </p>
                 </div>

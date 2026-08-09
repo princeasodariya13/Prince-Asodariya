@@ -14,23 +14,23 @@ export default function Education() {
         <div className="mt-14 grid gap-6 sm:grid-cols-2">
           {education.map((entry, i) => (
             <Reveal key={entry.id} delay={i * 100}>
-              <div className="h-full rounded-[14px] border border-[#242832] bg-[#181B22] p-7">
-                <span className="font-mono text-sm text-[#8B909C]">
+              <div className="h-full rounded-[14px] border border-[#e5e7eb] bg-[#ffffff] p-7">
+                <span className="font-mono text-sm text-[#6b7280]">
                   {entry.startYear} — {entry.endYear}
                 </span>
-                <h3 className="mt-2 font-display text-[clamp(1.25rem,1.8vw,1.65rem)] font-medium leading-[1.2] tracking-[-0.01em] text-[#ECEDF0]">
+                <h3 className="mt-2 font-display text-[clamp(1.25rem,1.8vw,1.65rem)] font-medium leading-[1.2] tracking-[-0.01em] text-[#111111]">
                   {entry.degree}
                 </h3>
-                <p className="mt-1 font-mono text-sm text-amber-400">
+                <p className="mt-1 font-mono text-sm text-red-500">
                   {entry.institution}
                 </p>
                 {entry.details && (
-                  <p className="mt-3 text-sm leading-relaxed text-[#8B909C]">
+                  <p className="mt-3 text-sm leading-relaxed text-[#6b7280]">
                     {entry.details}
                   </p>
                 )}
                 {entry.isPlaceholder && (
-                  <p className="mt-4 border-t border-[#242832] pt-4 font-mono text-[0.68rem] uppercase tracking-wide text-amber-400">
+                  <p className="mt-4 border-t border-[#e5e7eb] pt-4 font-mono text-[0.68rem] uppercase tracking-wide text-red-500">
                     Placeholder — add real details
                   </p>
                 )}

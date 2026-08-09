@@ -23,20 +23,20 @@ html {
 }
 
 body {
-  background-color: #0f1115;
-  color: #ecedf0;
+  background-color: #fafafa;
+  color: #111111;
   overflow-x: hidden;
   font-family: var(--font-body, sans-serif);
 }
 
 ::selection {
-  background: rgba(240, 180, 41, 0.25);
-  color: #ecedf0;
+  background: rgba(239, 68, 68, 0.25);
+  color: #111111;
 }
 
 /* Focus visibility (accessibility) */
 :focus-visible {
-  outline: 2px solid #f0b429;
+  outline: 2px solid #ef4444;
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -46,14 +46,14 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0f1115;
+  background: #fafafa;
 }
 ::-webkit-scrollbar-thumb {
-  background: #242832;
+  background: #e5e7eb;
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #343a48;
+  background: #d1d5db;
 }
 
 /* Font variables */
