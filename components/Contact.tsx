@@ -98,6 +98,15 @@ export default function Contact() {
                 <span className="w-8 h-[1px] bg-[#242832] group-hover:bg-amber-400 transition-colors" />
                 LinkedIn ↗
               </a>
+              <a
+                href={(profile as any).instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-[#ECEDF0] transition-colors hover:text-amber-400 group"
+              >
+                <span className="w-8 h-[1px] bg-[#242832] group-hover:bg-amber-400 transition-colors" />
+                Instagram ↗
+              </a>
             </div>
           </Reveal>
 

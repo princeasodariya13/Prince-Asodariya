@@ -55,6 +55,14 @@ export default function Footer() {
             LinkedIn
           </a>
           <a
+            href={(profile as any).instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#8B909C] transition-colors hover:text-amber-400"
+          >
+            Instagram
+          </a>
+          <a
             href={`mailto:${profile.email}`}
             className="text-[#8B909C] transition-colors hover:text-amber-400"
           >

@@ -73,6 +73,14 @@ export default function Hero() {
             >
               LinkedIn ↗
             </a>
+            <a
+              href={(profile as any).instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-amber-400"
+            >
+              Instagram ↗
+            </a>
           </div>
         </Reveal>
       </div>

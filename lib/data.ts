@@ -43,7 +43,7 @@ export const projects: (Project & { isPlaceholder?: boolean })[] = [
     id: "setu-architect",
     title: "Setu Architects",
     description:
-      "A professional business website for Setu Architecture — a structural engineering firm established in 1988. Showcases their portfolio of residential, commercial, industrial & public infrastructure projects with MEPF design capabilities.",
+      "A professional business website for Setu Architecture — a structural engineering firm established in 1988. Showcases their portfolio of residential, commercial, industrial & public infrastructure projects with full MEPF design capabilities.",
     techStack: ["Next.js", "React", "Tailwind CSS", "Vercel"],
     features: [
       "Full company portfolio with project showcase gallery",
@@ -59,8 +59,8 @@ export const projects: (Project & { isPlaceholder?: boolean })[] = [
     id: "thumblify",
     title: "Thumblify — AI Thumbnail Generator",
     description:
-      "An AI-powered web tool that generates professional, eye-catching YouTube thumbnails from text prompts in seconds. Saves content creators hours of design work with smart style presets and one-click downloads.",
-    techStack: ["React", "Vite", "TypeScript", "OpenAI API", "Cloudinary", "Tailwind CSS"],
+      "An AI-powered web tool that generates professional, eye-catching YouTube thumbnails from text prompts in seconds using generative AI models. Saves content creators hours of design work with smart style presets and one-click downloads.",
+    techStack: ["React", "Vite", "Node.js", "OpenAI API", "Cloudinary", "Tailwind CSS"],
     features: [
       "Text-to-image AI thumbnail generation in seconds",
       "Multiple style & template presets for YouTube content",
@@ -75,7 +75,7 @@ export const projects: (Project & { isPlaceholder?: boolean })[] = [
     id: "transit-ops",
     title: "Transit OPS — Smart Transport",
     description:
-      "A full-stack fleet and transport operations management platform (FleetFlow) for enterprise teams. Features role-based access control, vehicle tracking, driver management, trip logs, fuel records, maintenance scheduling, and analytics with PDF export.",
+      "A full-stack fleet and transport operations management platform for enterprise teams. Features role-based access control, vehicle tracking, driver management, trip logs, fuel records, maintenance scheduling, and analytics with PDF export.",
     techStack: ["React", "Vite", "TypeScript", "Node.js", "MongoDB", "Tailwind CSS"],
     features: [
       "Role-based access: Administrator & Fleet Manager",
@@ -91,13 +91,13 @@ export const projects: (Project & { isPlaceholder?: boolean })[] = [
     id: "healthcare-hub",
     title: "Healthcare Hub",
     description:
-      "A comprehensive hospital management system built on the MERN stack for managing end-to-end hospital operations — patient records, OPD scheduling, doctor management, billing, and pharmacy inventory with secure role-based access.",
-    techStack: ["React", "Node.js", "Express.js", "MongoDB", "JWT", "REST API", "Tailwind CSS"],
+      "A robust PHP & MERN-based hospital management platform for end-to-end hospital operations — secure patient records, automated appointment scheduling, MySQL database management, and role-based access for admins, doctors, and patients.",
+    techStack: ["React", "Node.js", "Express.js", "MongoDB", "PHP", "MySQL", "Bootstrap"],
     features: [
+      "Secure patient records & medical history management",
+      "Automated OPD appointment scheduling system",
       "Role-based access for Admins, Doctors & Patients",
-      "OPD appointment scheduling & patient record management",
-      "Integrated billing system with invoice generation",
-      "Pharmacy inventory tracking & prescription management",
+      "Integrated billing system with pharmacy inventory",
     ],
     githubUrl: "https://github.com/princeasodariya13",
     liveUrl: undefined,
@@ -109,22 +109,22 @@ export const skillCategories: SkillCategory[] = [
   {
     id: "frontend",
     label: "Frontend",
-    skills: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "HTML5", "CSS3", "Vite"],
+    skills: ["HTML5", "CSS3", "JavaScript (ES6+)", "React", "Next.js", "TypeScript", "Vite", "Tailwind CSS", "Bootstrap"],
   },
   {
     id: "backend",
     label: "Backend",
-    skills: ["Node.js", "Express.js", "REST APIs", "JWT Authentication", "NextAuth.js"],
+    skills: ["Node.js", "Express.js", "REST APIs", "JWT Authentication", "NextAuth.js", "PHP", ".NET"],
   },
   {
     id: "database",
     label: "Database",
-    skills: ["MongoDB", "Mongoose", "Prisma", "PostgreSQL"],
+    skills: ["MongoDB", "Mongoose", "MySQL", "Prisma", "PostgreSQL"],
   },
   {
     id: "tools",
-    label: "Tools & DevOps",
-    skills: ["Git", "GitHub", "Postman", "Cloudinary", "Vercel", "PWA", "Figma"],
+    label: "Tools & Platforms",
+    skills: ["Git", "GitHub", "Postman", "Cloudinary", "Vercel", "Vite", "Android", "Java", "C#"],
   },
 ];
 
@@ -137,10 +137,11 @@ export const experience: ExperienceEntry[] = [
     endDate: "Feb 2026",
     location: "Gujarat, India",
     responsibilities: [
-      "Developed and maintained full-stack web applications using MongoDB, Express.js, React, and Node.js.",
-      "Built RESTful APIs with JWT-based authentication and role-based access control.",
-      "Collaborated on real-world client projects, translating UI designs into production-ready React components.",
-      "Implemented responsive, accessible UIs using Tailwind CSS and modern design patterns.",
+      "Built full-stack web applications using MongoDB, Express.js, React, and Node.js.",
+      "Designed and implemented RESTful APIs with JWT-based authentication and role-based access control.",
+      "Collaborated on real-world client projects — translated UI/UX designs into production-ready React components.",
+      "Implemented responsive, accessible UIs using Tailwind CSS and modern component patterns.",
+      "Optimized APIs and database schemas for performance and scalability.",
     ],
   },
 ];
@@ -153,18 +154,20 @@ export const education: EducationEntry[] = [
     startYear: "2023",
     endYear: "2026",
     details:
-      "Studying core Computer Science fundamentals alongside applied IT — including software development, database management, web technologies, networking, and system design.",
+      "Studying core Computer Science fundamentals alongside applied IT — software development, database management, web technologies, networking, and system design. Won Top College Project award (1st place) at Indus Institute.",
   },
 ];
 
 export const profile = {
   name: "Prince Asodariya",
   role: "MERN / Full-Stack Developer",
-  tagline: "Building fast, scalable web applications end to end.",
+  tagline:
+    "I specialize in building end-to-end web applications using the MERN stack — architecting scalable APIs, designing seamless database schemas, and crafting high-performance user interfaces.",
   location: "Gujarat, India",
   email: "princeasodariya13@gmail.com",
   github: "https://github.com/princeasodariya13",
   linkedin: "https://www.linkedin.com/in/prince-asodariya-098395373/",
+  instagram: "https://instagram.com/prince.asodariya.311",
   resumeUrl: "/resume.pdf",
   availability: "Open to new opportunities",
 };
