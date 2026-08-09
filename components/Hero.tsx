@@ -10,36 +10,36 @@ export default function Hero() {
     >
       {/* Ambient background glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-red-500/5 blur-[120px]" />
-        <div className="absolute top-1/2 -right-40 w-[400px] h-[400px] rounded-full bg-red-500/3 blur-[100px]" />
+        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-accent/5 blur-[120px]" />
+        <div className="absolute top-1/2 -right-40 w-[400px] h-[400px] rounded-full bg-accent/3 blur-[100px]" />
       </div>
 
       <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)] relative z-10">
         <Reveal>
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#e5e7eb] px-4 py-1.5 font-mono text-[clamp(0.72rem,0.8vw,0.8rem)] text-[#6b7280]">
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-border-subtle px-4 py-1.5 font-mono text-[clamp(0.72rem,0.8vw,0.8rem)] text-text-secondary">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
             </span>
             {profile.availability}
           </div>
         </Reveal>
 
         <Reveal delay={80}>
-          <h1 className="font-display text-[clamp(2.75rem,7vw,6.5rem)] font-medium leading-[1.02] tracking-[-0.03em] text-[#111111]">
+          <h1 className="font-display text-[clamp(2.75rem,7vw,6.5rem)] font-medium leading-[1.02] tracking-[-0.03em] text-text-primary">
             {profile.name}
-            <span className="text-red-500">.</span>
+            <span className="text-accent">.</span>
           </h1>
         </Reveal>
 
         <Reveal delay={160}>
-          <p className="mt-5 max-w-xl font-mono text-[clamp(1.05rem,1.3vw,1.2rem)] leading-[1.65] text-[#6b7280]">
+          <p className="mt-5 max-w-xl font-mono text-[clamp(1.05rem,1.3vw,1.2rem)] leading-[1.65] text-text-secondary">
             {profile.role}
           </p>
         </Reveal>
 
         <Reveal delay={220}>
-          <p className="mt-4 max-w-xl text-[clamp(0.95rem,1vw,1.0625rem)] leading-[1.7] text-[#6b7280]">
+          <p className="mt-4 max-w-xl text-[clamp(0.95rem,1vw,1.0625rem)] leading-[1.7] text-text-secondary">
             {profile.tagline}
           </p>
         </Reveal>
@@ -56,12 +56,12 @@ export default function Hero() {
         </Reveal>
 
         <Reveal delay={380}>
-          <div className="mt-10 flex items-center gap-6 font-mono text-sm text-[#6b7280]">
+          <div className="mt-10 flex items-center gap-6 font-mono text-sm text-text-secondary">
             <a
               href={profile.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-red-500"
+              className="transition-colors hover:text-accent"
             >
               GitHub ↗
             </a>
@@ -69,7 +69,7 @@ export default function Hero() {
               href={profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-red-500"
+              className="transition-colors hover:text-accent"
             >
               LinkedIn ↗
             </a>
@@ -77,7 +77,7 @@ export default function Hero() {
               href={(profile as any).instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-red-500"
+              className="transition-colors hover:text-accent"
             >
               Instagram ↗
             </a>

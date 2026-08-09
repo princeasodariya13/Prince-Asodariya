@@ -1,5 +1,47 @@
 @import "tailwindcss";
 
+:root {
+  /* Backgrounds */
+  --bg-primary: #fafafa;        /* page background — soft off-white, not pure white */
+  --bg-secondary: #f4f4f5;      /* alternating section background */
+  --bg-card: #ffffff;           /* card surfaces — pure white pops against off-white bg */
+  --bg-inverted: #111111;       /* used sparingly for footer/CTA band */
+
+  /* Text */
+  --text-primary: #111111;      /* headings, near-black not pure black */
+  --text-secondary: #52525b;    /* body copy — muted zinc/grey */
+  --text-muted: #a1a1aa;        /* metadata, timestamps, captions */
+  --text-inverted: #fafafa;     /* text on dark surfaces */
+
+  /* Borders */
+  --border-subtle: #e4e4e7;     /* card outlines, dividers */
+  --border-strong: #d4d4d8;     /* hover-state border */
+
+  /* Accent (single accent, used sparingly) - using red since you liked it */
+  --accent: #ef4444;            /* links, active states, primary CTA */
+  --accent-hover: #dc2626;      /* darker on hover */
+  --accent-soft: #fef2f2;       /* accent background tint */
+}
+
+@theme {
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-card: var(--bg-card);
+  --color-bg-inverted: var(--bg-inverted);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-inverted: var(--text-inverted);
+
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -23,20 +65,20 @@ html {
 }
 
 body {
-  background-color: #fafafa;
-  color: #111111;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   overflow-x: hidden;
   font-family: var(--font-body, sans-serif);
 }
 
 ::selection {
-  background: rgba(239, 68, 68, 0.25);
-  color: #111111;
+  background: var(--accent-soft);
+  color: var(--text-primary);
 }
 
 /* Focus visibility (accessibility) */
 :focus-visible {
-  outline: 2px solid #ef4444;
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -46,14 +88,14 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #fafafa;
+  background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: #e5e7eb;
+  background: var(--border-subtle);
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #d1d5db;
+  background: var(--border-strong);
 }
 
 /* Font variables */
@@ -87,4 +129,87 @@ body {
     transform: none;
     transition: none;
   }
+}
+
+/* --- Interaction System --- */
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+  position: relative;
+  transition: color 150ms ease;
+}
+a:hover {
+  color: var(--accent);
+}
+
+.link-underline {
+  position: relative;
+  color: var(--text-secondary);
+  transition: color 200ms ease;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 1px;
+  background: currentColor;
+  transition: width 250ms ease;
+}
+.link-underline:hover {
+  color: var(--text-primary);
+}
+.link-underline:hover::after {
+  width: 100%;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+.card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.08);
+}
+
+.btn-primary {
+  background: var(--text-primary);
+  color: var(--text-inverted);
+  transition: background-color 180ms ease, transform 150ms ease;
+}
+.btn-primary:hover {
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  transition: border-color 180ms ease, background-color 180ms ease;
+}
+.btn-secondary:hover {
+  border-color: var(--text-primary);
+  background: var(--bg-secondary);
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  transition: color 150ms ease;
+}
+.nav-link:hover,
+.nav-link[aria-current="page"] {
+  color: var(--text-primary);
+}
+
+.meta-text {
+  color: var(--text-muted);
+  font-size: 0.8rem;
 }

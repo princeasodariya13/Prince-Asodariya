@@ -35,17 +35,17 @@ export default function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
         scrolled
-          ? "bg-[#fafafa]/85 backdrop-blur-md border-b border-[#e5e7eb]"
+          ? "bg-bg-primary/85 backdrop-blur-md border-b border-border-subtle"
           : "bg-transparent"
       }`}
     >
       <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)] flex h-[72px] items-center justify-between">
         <a
           href="#home"
-          className="font-display text-lg font-semibold tracking-tight text-[#111111]"
+          className="font-display text-lg font-semibold tracking-tight text-text-primary"
         >
           {profile.name}
-          <span className="text-red-500">.</span>
+          <span className="text-accent">.</span>
         </a>
 
         <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
@@ -53,7 +53,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="font-mono text-sm text-[#6b7280] transition-colors duration-200 hover:text-[#111111]"
+              className="font-mono text-sm text-text-secondary transition-colors duration-200 hover:text-text-primary"
             >
               {link.label}
             </a>
@@ -63,19 +63,19 @@ export default function Navbar() {
         <div className="relative group hidden md:block">
           <Button variant="secondary" className="cursor-default">Resume</Button>
           <div className="absolute right-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-            <div className="w-32 flex flex-col rounded-[8px] border border-[#e5e7eb] bg-[#fafafa] p-1.5 shadow-xl">
+            <div className="w-32 flex flex-col rounded-[8px] border border-border-subtle bg-bg-primary p-1.5 shadow-xl">
               <a
                 href={profile.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-2 text-sm font-mono text-[#6b7280] transition-colors hover:bg-[#ffffff] hover:text-[#111111] rounded-[6px]"
+                className="px-3 py-2 text-sm font-mono text-text-secondary transition-colors hover:bg-bg-card hover:text-text-primary rounded-[6px]"
               >
                 View
               </a>
               <a
                 href={profile.resumeUrl}
                 download
-                className="px-3 py-2 text-sm font-mono text-[#6b7280] transition-colors hover:bg-[#ffffff] hover:text-[#111111] rounded-[6px]"
+                className="px-3 py-2 text-sm font-mono text-text-secondary transition-colors hover:bg-bg-card hover:text-text-primary rounded-[6px]"
               >
                 Download
               </a>
@@ -92,12 +92,12 @@ export default function Navbar() {
           className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
         >
           <span
-            className={`h-[1.5px] w-6 bg-[#111111] transition-transform duration-300 ${
+            className={`h-[1.5px] w-6 bg-bg-inverted transition-transform duration-300 ${
               open ? "translate-y-[3.5px] rotate-45" : ""
             }`}
           />
           <span
-            className={`h-[1.5px] w-6 bg-[#111111] transition-transform duration-300 ${
+            className={`h-[1.5px] w-6 bg-bg-inverted transition-transform duration-300 ${
               open ? "-translate-y-[3.5px] -rotate-45" : ""
             }`}
           />
@@ -106,8 +106,8 @@ export default function Navbar() {
 
       <div
         id="mobile-menu"
-        className={`overflow-hidden bg-[#fafafa] transition-[max-height] duration-300 md:hidden ${
-          open ? "max-h-[420px] border-b border-[#e5e7eb]" : "max-h-0"
+        className={`overflow-hidden bg-bg-primary transition-[max-height] duration-300 md:hidden ${
+          open ? "max-h-[420px] border-b border-border-subtle" : "max-h-0"
         }`}
       >
         <nav
@@ -119,7 +119,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="rounded-md px-2 py-3 font-mono text-base text-[#6b7280] transition-colors hover:bg-[#ffffff] hover:text-[#111111]"
+              className="rounded-md px-2 py-3 font-mono text-base text-text-secondary transition-colors hover:bg-bg-card hover:text-text-primary"
             >
               {link.label}
             </a>

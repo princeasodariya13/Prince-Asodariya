@@ -17,7 +17,7 @@ export const projects: (Project & { isPlaceholder?: boolean })[] = [
     ],
     githubUrl: "https://github.com/princeasodariya13",
     liveUrl: "https://smart-farming-india.vercel.app",
-    image: undefined,
+    image: "/projects/smart-farming-india-v2.png",
     featured: true,
   },
   {
@@ -36,7 +36,7 @@ export const projects: (Project & { isPlaceholder?: boolean })[] = [
     ],
     githubUrl: "https://github.com/princeasodariya13",
     liveUrl: "https://nexahr-ai.vercel.app/",
-    image: undefined,
+    image: "/projects/nexahr-ai-v2.png",
     featured: true,
   },
   {
@@ -53,7 +53,7 @@ export const projects: (Project & { isPlaceholder?: boolean })[] = [
     ],
     githubUrl: "https://github.com/princeasodariya13",
     liveUrl: "https://setu-architect.vercel.app/",
-    image: undefined,
+    image: "/projects/setu-architect-v2.png",
   },
   {
     id: "thumblify",
@@ -69,7 +69,7 @@ export const projects: (Project & { isPlaceholder?: boolean })[] = [
     ],
     githubUrl: "https://github.com/princeasodariya13",
     liveUrl: "https://thumblify-7nxy.vercel.app/",
-    image: undefined,
+    image: "/projects/thumblify-v2.png",
   },
   {
     id: "transit-ops",
@@ -85,7 +85,7 @@ export const projects: (Project & { isPlaceholder?: boolean })[] = [
     ],
     githubUrl: "https://github.com/princeasodariya13",
     liveUrl: "https://transit-ops-smart-transport.vercel.app/",
-    image: undefined,
+    image: "/projects/transit-ops-v2.png",
   },
   {
     id: "healthcare-hub",

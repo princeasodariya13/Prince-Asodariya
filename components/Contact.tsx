@@ -57,7 +57,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-[clamp(4.5rem,10vw,9rem)] bg-[#fafafa]">
+    <section id="contact" className="py-[clamp(4.5rem,10vw,9rem)] bg-bg-primary">
       <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)]">
         <SectionHeading
           eyebrow="07 — contact"
@@ -68,43 +68,43 @@ export default function Contact() {
         <div className="mt-14 grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
           <Reveal>
             <div className="space-y-5 font-mono text-sm">
-              <p className="text-[#6b7280] text-base mb-8">
+              <p className="text-text-secondary text-base mb-8">
                 I&apos;m currently open to new opportunities. Whether you have
                 a project in mind or just want to say hi — my inbox is always
                 open.
               </p>
               <a
                 href={`mailto:${profile.email}`}
-                className="flex items-center gap-3 text-[#111111] transition-colors hover:text-red-500 group"
+                className="flex items-center gap-3 text-text-primary transition-colors hover:text-accent group"
               >
-                <span className="w-8 h-[1px] bg-[#e5e7eb] group-hover:bg-red-500 transition-colors" />
+                <span className="w-8 h-[1px] bg-[#e5e7eb] group-hover:bg-accent transition-colors" />
                 {profile.email}
               </a>
               <a
                 href={profile.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-[#111111] transition-colors hover:text-red-500 group"
+                className="flex items-center gap-3 text-text-primary transition-colors hover:text-accent group"
               >
-                <span className="w-8 h-[1px] bg-[#e5e7eb] group-hover:bg-red-500 transition-colors" />
+                <span className="w-8 h-[1px] bg-[#e5e7eb] group-hover:bg-accent transition-colors" />
                 GitHub ↗
               </a>
               <a
                 href={profile.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-[#111111] transition-colors hover:text-red-500 group"
+                className="flex items-center gap-3 text-text-primary transition-colors hover:text-accent group"
               >
-                <span className="w-8 h-[1px] bg-[#e5e7eb] group-hover:bg-red-500 transition-colors" />
+                <span className="w-8 h-[1px] bg-[#e5e7eb] group-hover:bg-accent transition-colors" />
                 LinkedIn ↗
               </a>
               <a
                 href={(profile as any).instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-[#111111] transition-colors hover:text-red-500 group"
+                className="flex items-center gap-3 text-text-primary transition-colors hover:text-accent group"
               >
-                <span className="w-8 h-[1px] bg-[#e5e7eb] group-hover:bg-red-500 transition-colors" />
+                <span className="w-8 h-[1px] bg-[#e5e7eb] group-hover:bg-accent transition-colors" />
                 Instagram ↗
               </a>
             </div>
@@ -115,7 +115,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="contact-name"
-                  className="mb-2 block font-mono text-sm text-[#6b7280]"
+                  className="mb-2 block font-mono text-sm text-text-secondary"
                 >
                   Name
                 </label>
@@ -128,11 +128,11 @@ export default function Contact() {
                   }
                   aria-invalid={!!errors.name}
                   aria-describedby={errors.name ? "name-error" : undefined}
-                  className="w-full rounded-[10px] border border-[#e5e7eb] bg-[#ffffff] px-4 py-3 text-[#111111] outline-none transition-colors focus:border-red-500 placeholder:text-[#9ca3af]"
+                  className="w-full rounded-[10px] border border-border-subtle bg-bg-card px-4 py-3 text-text-primary outline-none transition-colors focus:border-accent placeholder:text-text-muted"
                   placeholder="Your full name"
                 />
                 {errors.name && (
-                  <p id="name-error" className="mt-1.5 text-sm text-red-500">
+                  <p id="name-error" className="mt-1.5 text-sm text-accent">
                     {errors.name}
                   </p>
                 )}
@@ -141,7 +141,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="contact-email"
-                  className="mb-2 block font-mono text-sm text-[#6b7280]"
+                  className="mb-2 block font-mono text-sm text-text-secondary"
                 >
                   Email
                 </label>
@@ -154,13 +154,13 @@ export default function Contact() {
                   }
                   aria-invalid={!!errors.email}
                   aria-describedby={errors.email ? "email-error" : undefined}
-                  className="w-full rounded-[10px] border border-[#e5e7eb] bg-[#ffffff] px-4 py-3 text-[#111111] outline-none transition-colors focus:border-red-500 placeholder:text-[#9ca3af]"
+                  className="w-full rounded-[10px] border border-border-subtle bg-bg-card px-4 py-3 text-text-primary outline-none transition-colors focus:border-accent placeholder:text-text-muted"
                   placeholder="your@email.com"
                 />
                 {errors.email && (
                   <p
                     id="email-error"
-                    className="mt-1.5 text-sm text-red-500"
+                    className="mt-1.5 text-sm text-accent"
                   >
                     {errors.email}
                   </p>
@@ -170,7 +170,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="contact-message"
-                  className="mb-2 block font-mono text-sm text-[#6b7280]"
+                  className="mb-2 block font-mono text-sm text-text-secondary"
                 >
                   Message
                 </label>
@@ -185,13 +185,13 @@ export default function Contact() {
                   aria-describedby={
                     errors.message ? "message-error" : undefined
                   }
-                  className="w-full resize-none rounded-[10px] border border-[#e5e7eb] bg-[#ffffff] px-4 py-3 text-[#111111] outline-none transition-colors focus:border-red-500 placeholder:text-[#9ca3af]"
+                  className="w-full resize-none rounded-[10px] border border-border-subtle bg-bg-card px-4 py-3 text-text-primary outline-none transition-colors focus:border-accent placeholder:text-text-muted"
                   placeholder="Tell me about your project or opportunity…"
                 />
                 {errors.message && (
                   <p
                     id="message-error"
-                    className="mt-1.5 text-sm text-red-500"
+                    className="mt-1.5 text-sm text-accent"
                   >
                     {errors.message}
                   </p>
@@ -208,12 +208,12 @@ export default function Contact() {
 
               <div role="status" aria-live="polite">
                 {status === "success" && (
-                  <p className="text-sm text-red-500">
+                  <p className="text-sm text-accent">
                     ✓ Message sent — thanks for reaching out.
                   </p>
                 )}
                 {status === "error" && (
-                  <p className="text-sm text-red-500">
+                  <p className="text-sm text-accent">
                     Something went wrong. Please try again or email directly.
                   </p>
                 )}

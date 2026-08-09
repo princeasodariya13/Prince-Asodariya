@@ -13,14 +13,14 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-[#e5e7eb] py-14">
+    <footer className="border-t border-border-subtle py-14">
       <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)] flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
         <div className="max-w-sm">
-          <span className="font-display text-lg font-semibold text-[#111111]">
+          <span className="font-display text-lg font-semibold text-text-primary">
             {profile.name}
-            <span className="text-red-500">.</span>
+            <span className="text-accent">.</span>
           </span>
-          <p className="mt-3 text-sm leading-relaxed text-[#6b7280]">
+          <p className="mt-3 text-sm leading-relaxed text-text-secondary">
             {profile.tagline}
           </p>
         </div>
@@ -30,7 +30,7 @@ export default function Footer() {
             <a
               key={link.href}
               href={link.href}
-              className="font-mono text-sm text-[#6b7280] transition-colors hover:text-[#111111]"
+              className="font-mono text-sm text-text-secondary transition-colors hover:text-text-primary"
             >
               {link.label}
             </a>
@@ -42,7 +42,7 @@ export default function Footer() {
             href={profile.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#6b7280] transition-colors hover:text-red-500"
+            className="text-text-secondary transition-colors hover:text-accent"
           >
             GitHub
           </a>
@@ -50,7 +50,7 @@ export default function Footer() {
             href={profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#6b7280] transition-colors hover:text-red-500"
+            className="text-text-secondary transition-colors hover:text-accent"
           >
             LinkedIn
           </a>
@@ -58,21 +58,21 @@ export default function Footer() {
             href={(profile as any).instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#6b7280] transition-colors hover:text-red-500"
+            className="text-text-secondary transition-colors hover:text-accent"
           >
             Instagram
           </a>
           <a
             href={`mailto:${profile.email}`}
-            className="text-[#6b7280] transition-colors hover:text-red-500"
+            className="text-text-secondary transition-colors hover:text-accent"
           >
             Email
           </a>
         </div>
       </div>
 
-      <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)] mt-10 border-t border-[#e5e7eb] pt-6">
-        <p className="font-mono text-[0.72rem] text-[#9ca3af]">
+      <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)] mt-10 border-t border-border-subtle pt-6">
+        <p className="font-mono text-[0.72rem] text-text-muted">
           © {year} {profile.name}. All rights reserved. Built with Next.js &amp; Tailwind CSS.
         </p>
       </div>
