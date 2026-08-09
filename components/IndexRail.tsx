@@ -38,7 +38,7 @@ export default function IndexRail() {
   return (
     <nav
       aria-label="Section index"
-      className="fixed left-6 top-1/2 z-40 hidden -translate-y-1/2 lg:flex lg:flex-col lg:gap-3"
+      className="fixed right-6 top-1/2 z-40 hidden -translate-y-1/2 lg:flex lg:flex-col lg:gap-3 items-end"
     >
       {SECTIONS.map(({ id, label }) => {
         const isActive = active === id;
@@ -46,21 +46,21 @@ export default function IndexRail() {
           <a
             key={id}
             href={`#${id}`}
-            className="group flex items-center gap-3"
+            className="group flex flex-row-reverse items-center gap-3"
             aria-current={isActive ? "true" : undefined}
           >
             <span
               className={`h-[1px] transition-all duration-300 ${
                 isActive
                   ? "w-8 bg-red-500"
-                  : "w-4 bg-[#e5e7eb] group-hover:w-6 group-hover:bg-[#6b7280]"
+                  : "w-4 bg-[#d1d5db] group-hover:w-6 group-hover:bg-[#111111]"
               }`}
             />
             <span
-              className={`font-mono text-[0.65rem] tracking-wide transition-opacity duration-200 ${
+              className={`font-mono text-[0.65rem] tracking-wide transition-all duration-200 ${
                 isActive
-                  ? "text-red-500 opacity-100"
-                  : "text-[#6b7280] opacity-0 group-hover:opacity-100"
+                  ? "text-red-500"
+                  : "text-[#9ca3af] group-hover:text-[#111111]"
               }`}
             >
               {label}
