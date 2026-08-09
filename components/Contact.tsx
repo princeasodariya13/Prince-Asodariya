@@ -57,7 +57,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-[clamp(4.5rem,10vw,9rem)] bg-[#14161C]">
+    <section id="contact" className="py-[clamp(4.5rem,10vw,9rem)] bg-[#fafafa]">
       <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)]">
         <SectionHeading
           eyebrow="07 — contact"
@@ -128,7 +128,7 @@ export default function Contact() {
                   }
                   aria-invalid={!!errors.name}
                   aria-describedby={errors.name ? "name-error" : undefined}
-                  className="w-full rounded-[10px] border border-[#e5e7eb] bg-[#ffffff] px-4 py-3 text-[#111111] outline-none transition-colors focus:border-red-500 placeholder:text-[#5C606B]"
+                  className="w-full rounded-[10px] border border-[#e5e7eb] bg-[#ffffff] px-4 py-3 text-[#111111] outline-none transition-colors focus:border-red-500 placeholder:text-[#9ca3af]"
                   placeholder="Your full name"
                 />
                 {errors.name && (
@@ -154,7 +154,7 @@ export default function Contact() {
                   }
                   aria-invalid={!!errors.email}
                   aria-describedby={errors.email ? "email-error" : undefined}
-                  className="w-full rounded-[10px] border border-[#e5e7eb] bg-[#ffffff] px-4 py-3 text-[#111111] outline-none transition-colors focus:border-red-500 placeholder:text-[#5C606B]"
+                  className="w-full rounded-[10px] border border-[#e5e7eb] bg-[#ffffff] px-4 py-3 text-[#111111] outline-none transition-colors focus:border-red-500 placeholder:text-[#9ca3af]"
                   placeholder="your@email.com"
                 />
                 {errors.email && (
@@ -185,7 +185,7 @@ export default function Contact() {
                   aria-describedby={
                     errors.message ? "message-error" : undefined
                   }
-                  className="w-full resize-none rounded-[10px] border border-[#e5e7eb] bg-[#ffffff] px-4 py-3 text-[#111111] outline-none transition-colors focus:border-red-500 placeholder:text-[#5C606B]"
+                  className="w-full resize-none rounded-[10px] border border-[#e5e7eb] bg-[#ffffff] px-4 py-3 text-[#111111] outline-none transition-colors focus:border-red-500 placeholder:text-[#9ca3af]"
                   placeholder="Tell me about your project or opportunity…"
                 />
                 {errors.message && (

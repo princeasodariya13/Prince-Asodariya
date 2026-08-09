@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-[clamp(4.5rem,10vw,9rem)] bg-[#14161C]">
+    <section id="skills" className="py-[clamp(4.5rem,10vw,9rem)] bg-[#fafafa]">
       <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)]">
         <SectionHeading eyebrow="03 — skills" title="Tools of the trade." />
 

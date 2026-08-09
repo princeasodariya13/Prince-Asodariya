@@ -72,7 +72,7 @@ export default function Footer() {
       </div>
 
       <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)] mt-10 border-t border-[#e5e7eb] pt-6">
-        <p className="font-mono text-[0.72rem] text-[#5C606B]">
+        <p className="font-mono text-[0.72rem] text-[#9ca3af]">
           © {year} {profile.name}. All rights reserved. Built with Next.js &amp; Tailwind CSS.
         </p>
       </div>

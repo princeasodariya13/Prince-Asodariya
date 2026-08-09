@@ -70,7 +70,7 @@ export default function About() {
           <div className="grid grid-cols-1 gap-px overflow-hidden rounded-[14px] border border-[#e5e7eb] bg-[#e5e7eb] sm:grid-cols-2">
             {FOCUS_AREAS.map((area, i) => (
               <Reveal key={area.label} delay={120 + i * 60}>
-                <div className="h-full bg-[#ffffff] p-6 transition-colors duration-200 hover:bg-[#1e2230]">
+                <div className="h-full bg-[#ffffff] p-6 transition-colors duration-200 hover:bg-[#f9fafb]">
                   <span className="font-mono text-[clamp(0.72rem,0.8vw,0.8rem)] text-red-500">
                     {String(i + 1).padStart(2, "0")}
                   </span>

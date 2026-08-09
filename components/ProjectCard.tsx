@@ -18,8 +18,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   } = project;
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-[14px] border border-[#e5e7eb] bg-[#ffffff] transition-all duration-300 hover:border-[#d1d5db] hover:shadow-[0_0_40px_rgba(240,180,41,0.06)]">
-      <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-[#e5e7eb] bg-[#14161C]">
+    <article className="group flex h-full flex-col overflow-hidden rounded-[14px] border border-[#e5e7eb] bg-[#ffffff] transition-all duration-300 hover:border-[#d1d5db] hover:shadow-[0_0_40px_rgba(239,68,68,0.06)]">
+      <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-[#e5e7eb] bg-[#fafafa]">
         {image ? (
           <Image
             src={image}
@@ -34,7 +34,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               <div className="text-3xl font-display font-semibold text-[#e5e7eb] group-hover:text-[#d1d5db] transition-colors duration-300">
                 {title.charAt(0)}
               </div>
-              <div className="mt-2 font-mono text-[0.65rem] text-[#5C606B]">
+              <div className="mt-2 font-mono text-[0.65rem] text-[#9ca3af]">
                 project preview
               </div>
             </div>
@@ -86,7 +86,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             </a>
           ) : (
             <span
-              className="text-[#5C606B]"
+              className="text-[#9ca3af]"
               aria-label="GitHub link not yet available"
             >
               Code — TBD
@@ -103,7 +103,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             </a>
           ) : (
             <span
-              className="text-[#5C606B]"
+              className="text-[#9ca3af]"
               aria-label="Live demo link not yet available"
             >
               Live — TBD
