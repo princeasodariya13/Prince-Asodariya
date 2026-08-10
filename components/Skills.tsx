@@ -83,11 +83,11 @@ export default function Skills() {
     <section id="skills" className="relative py-[clamp(4rem,6vw,6rem)] bg-[#f8fafc] overflow-hidden">
       {/* Background Dot Pattern */}
       <div 
-        className="absolute inset-0 pointer-events-none opacity-40 mix-blend-multiply transition-opacity duration-500" 
+        className="absolute inset-0 pointer-events-none opacity-40 transition-opacity duration-500 transform-gpu" 
         style={{ 
-          backgroundImage: 'radial-gradient(circle at center, #cbd5e1 1.5px, transparent 1.5px)', 
+          backgroundImage: 'radial-gradient(circle at center, #94a3b8 1.5px, transparent 1.5px)', 
           backgroundSize: '32px 32px',
-          opacity: hoveredCategory ? 0.2 : 0.4
+          opacity: hoveredCategory ? 0.15 : 0.3
         }} 
       />
 
@@ -122,8 +122,8 @@ export default function Skills() {
           {/* Central Hub */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 hidden lg:flex items-center justify-center">
             {/* Outer animated rings */}
-            <div className={`absolute w-48 h-48 border rounded-full animate-[spin_20s_linear_infinite] transition-colors duration-500 ${hoveredCategory ? 'border-border-subtle/30' : 'border-border-subtle'}`} />
-            <div className={`absolute w-40 h-40 border rounded-full animate-[spin_15s_linear_infinite_reverse] transition-colors duration-500 ${hoveredCategory ? 'border-border-subtle/30' : 'border-border-subtle'}`} />
+            <div className={`absolute w-48 h-48 border rounded-full will-change-transform animate-[spin_20s_linear_infinite] transition-colors duration-500 ${hoveredCategory ? 'border-border-subtle/30' : 'border-border-subtle'}`} />
+            <div className={`absolute w-40 h-40 border rounded-full will-change-transform animate-[spin_15s_linear_infinite_reverse] transition-colors duration-500 ${hoveredCategory ? 'border-border-subtle/30' : 'border-border-subtle'}`} />
             <div className={`absolute w-56 h-56 border rounded-full transition-colors duration-500 ${hoveredCategory ? 'border-black/[0.02]' : 'border-black/5'}`} />
             
             <div className="w-28 h-28 rounded-full bg-white shadow-2xl flex flex-col items-center justify-center border border-border-subtle z-10 transition-transform duration-500 hover:scale-105">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
 
 const SECTIONS = [
@@ -44,6 +44,27 @@ const SECTIONS = [
 export default function IndexRail() {
   const pathname = usePathname();
   const [active, setActive] = useState("home");
+  
+  // Mobile Dial State
+  const [touchY, setTouchY] = useState<number | null>(null);
+  const itemsRef = useRef<(HTMLAnchorElement | null)[]>([]);
+  const [isIdle, setIsIdle] = useState(false);
+  const idleTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const resetIdleTimer = () => {
+    setIsIdle(false);
+    if (idleTimer.current) clearTimeout(idleTimer.current);
+    idleTimer.current = setTimeout(() => {
+      setIsIdle(true);
+    }, 1000);
+  };
+
+  useEffect(() => {
+    resetIdleTimer();
+    return () => {
+      if (idleTimer.current) clearTimeout(idleTimer.current);
+    };
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -64,10 +85,7 @@ export default function IndexRail() {
       });
     };
 
-    // Observe immediately
     observeSections();
-    
-    // Safety fallback for components that might hydrate slightly later (like "use client" components)
     const timeoutId = setTimeout(observeSections, 500);
 
     return () => {
@@ -80,35 +98,136 @@ export default function IndexRail() {
     return null;
   }
 
+  const handleTouchMove = (e: React.TouchEvent | React.MouseEvent) => {
+    resetIdleTimer();
+    let y = 0;
+    if ("touches" in e) {
+      y = e.touches[0].clientY;
+    } else {
+      y = (e as React.MouseEvent).clientY;
+    }
+    setTouchY(y);
+  };
+
+  const handleTouchEnd = () => {
+    resetIdleTimer();
+    if (touchY !== null) {
+      // Find the closest item to the release point
+      let closestId = "";
+      let minDist = Infinity;
+      itemsRef.current.forEach((el, index) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const elY = rect.top + rect.height / 2;
+        const dist = Math.abs(elY - touchY);
+        if (dist < minDist) {
+          minDist = dist;
+          closestId = SECTIONS[index].id;
+        }
+      });
+      if (closestId) {
+        document.getElementById(closestId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setActive(closestId);
+      }
+    }
+    setTouchY(null);
+  };
+
   return (
     <nav
       aria-label="Section index"
-      className="fixed right-6 top-1/2 z-40 hidden -translate-y-1/2 lg:flex lg:flex-col lg:gap-3 items-center"
+      // touch-none prevents standard scrolling while swiping on this area on mobile
+      className="fixed right-0 lg:right-6 top-1/2 z-40 -translate-y-1/2 flex flex-col gap-1.5 lg:gap-3 items-end lg:items-center py-10 px-4 lg:px-0 select-none touch-none"
+      onTouchStart={handleTouchMove}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      onTouchCancel={handleTouchEnd}
     >
-      {SECTIONS.map(({ id, label, icon }) => {
+      {SECTIONS.map(({ id, label, icon }, index) => {
         const isActive = active === id;
+        
+        // Physics for mobile dial variable-proximity effect
+        let scale = 1;
+        let xOffset = 0;
+        let labelOpacity = 0;
+        let isDialActive = false;
+
+        if (touchY !== null && itemsRef.current[index]) {
+          const rect = itemsRef.current[index]!.getBoundingClientRect();
+          const itemY = rect.top + rect.height / 2;
+          const dist = Math.abs(touchY - itemY);
+          const maxDist = 80; // Activation radius in pixels
+
+          if (dist < maxDist) {
+            isDialActive = true;
+            const intensity = 1 - dist / maxDist;
+            const easeOut = 1 - Math.pow(1 - intensity, 2); // Quadratic ease-out
+            
+            scale = 1 + easeOut * 0.4;
+            xOffset = -easeOut * 40; // Push to the left
+            labelOpacity = easeOut;
+          }
+        }
+
         return (
-          <div key={id} className="relative group">
+          <div key={id} className="relative group flex items-center justify-end w-full lg:w-auto">
+            {/* Mobile Dial Label */}
+            <div 
+               className="lg:hidden absolute right-full mr-3 font-mono text-[0.65rem] font-bold text-accent uppercase tracking-widest pointer-events-none origin-right drop-shadow-md"
+               style={{
+                 opacity: labelOpacity,
+                 transform: `translateX(${xOffset}px) scale(${scale})`,
+                 transition: touchY !== null ? "none" : "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)"
+               }}
+            >
+              {label}
+            </div>
+
             <a
+              ref={(el) => { itemsRef.current[index] = el; }}
               href={`#${id}`}
               onClick={(e) => {
                 e.preventDefault();
                 setActive(id);
                 document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }}
-              className={`flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300 ${
-                isActive
-                  ? "bg-black/5 border border-black/10 !text-accent shadow-sm scale-110"
-                  : "text-slate-500 hover:bg-black/5 hover:!text-accent"
-              }`}
+              className={`
+                flex items-center relative transition-all duration-300
+                
+                /* Desktop Base */
+                lg:h-12 lg:w-12 lg:justify-center lg:rounded-full
+                ${isActive ? "lg:bg-black/5 lg:border lg:border-black/10 lg:!text-accent lg:shadow-sm lg:scale-110" : "lg:text-slate-500 lg:hover:bg-black/5 lg:hover:!text-accent"}
+                
+                /* Mobile Base */
+                h-8 w-10 justify-end
+              `}
+              style={{
+                 transform: touchY !== null && isDialActive ? `translateX(${xOffset}px) scale(${scale})` : "",
+                 transition: touchY !== null ? "none" : "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+              }}
               aria-label={label}
               aria-current={isActive ? "true" : undefined}
             >
-              {icon}
+              {/* Desktop Icon */}
+              <div className="hidden lg:block">{icon}</div>
+
+              {/* Mobile Hyphen / Dot */}
+              <div 
+                className={`lg:hidden rounded-full transition-all duration-300 ${
+                  isActive 
+                    ? (isIdle && touchY === null ? 'w-2 h-2 bg-accent' : 'w-7 h-[2.5px] bg-accent') 
+                    : (isIdle && touchY === null ? 'w-[5px] h-[5px] bg-slate-400' : 'w-4 h-[2.5px] bg-slate-300 shadow-[0_0_2px_rgba(0,0,0,0.1)]')
+                }`} 
+                style={{
+                  backgroundColor: isDialActive && touchY !== null ? '#f97316' : undefined,
+                  width: isDialActive && touchY !== null ? '32px' : undefined,
+                  height: isDialActive && touchY !== null ? '2.5px' : undefined,
+                }}
+              />
             </a>
             
-            {/* Tooltip on hover */}
-            <div className="absolute right-full top-1/2 -translate-y-1/2 mr-4 rounded bg-text-primary px-2.5 py-1 text-[0.7rem] font-semibold tracking-wide text-bg-primary opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-x-1 pointer-events-none whitespace-nowrap shadow-md">
+            {/* Desktop Hover Tooltip */}
+            <div className="hidden lg:block absolute right-full top-1/2 -translate-y-1/2 mr-4 rounded bg-text-primary px-2.5 py-1 text-[0.7rem] font-semibold tracking-wide text-bg-primary opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-x-1 pointer-events-none whitespace-nowrap shadow-md">
               {label}
             </div>
           </div>

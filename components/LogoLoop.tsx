@@ -56,12 +56,12 @@ export default function LogoLoop({
       {/* Adding inline styles for keyframes since Tailwind doesn't have dynamic marquee by default */}
       <style>{`
         @keyframes marquee-left {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(calc(-100% - ${gap}px)); }
+          0% { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(calc(-100% - ${gap}px), 0, 0); }
         }
         @keyframes marquee-right {
-          0% { transform: translateX(calc(-100% - ${gap}px)); }
-          100% { transform: translateX(0); }
+          0% { transform: translate3d(calc(-100% - ${gap}px), 0, 0); }
+          100% { transform: translate3d(0, 0, 0); }
         }
       `}</style>
 
