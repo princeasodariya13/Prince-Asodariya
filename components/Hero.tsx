@@ -14,7 +14,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-svh items-center pt-[72px]"
+      className="relative flex min-h-[80svh] items-center pt-[110px]"
     >
       {/* Interactive Cursor Grid Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">

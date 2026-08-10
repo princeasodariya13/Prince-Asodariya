@@ -5,12 +5,13 @@ import { profile } from "@/lib/data";
 import Button from "./Button";
 
 const LINKS = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#contact", label: "Contact" },
+  { href: "#home", label: "Home", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> },
+  { href: "#about", label: "About", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> },
+  { href: "#experience", label: "Experience", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> },
+  { href: "#projects", label: "Projects", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> },
+  { href: "#education", label: "Education", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> },
+  { href: "#skills", label: "Skills", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> },
+  { href: "#contact", label: "Contact", icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> },
 ];
 
 export default function Navbar() {
@@ -47,18 +48,6 @@ export default function Navbar() {
           {profile.name}
           <span className="text-accent">.</span>
         </a>
-
-        <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
-          {LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="font-mono text-sm text-text-secondary transition-colors duration-200 hover:text-text-primary"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
 
         <div className="relative group hidden md:block">
           <Button variant="secondary" className="cursor-default">Resume</Button>
@@ -106,25 +95,31 @@ export default function Navbar() {
 
       <div
         id="mobile-menu"
-        className={`overflow-hidden bg-bg-primary transition-[max-height] duration-300 md:hidden ${
-          open ? "max-h-[420px] border-b border-border-subtle" : "max-h-0"
+        className={`overflow-y-auto bg-bg-primary transition-[max-height] duration-500 ease-in-out md:hidden ${
+          open ? "max-h-[85vh] border-b border-border-subtle shadow-2xl" : "max-h-0"
         }`}
       >
         <nav
           aria-label="Mobile"
-          className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)] flex flex-col gap-1 py-4"
+          className="w-full max-w-[1180px] mx-auto px-[clamp(1.5rem,5vw,5rem)] flex flex-col gap-2 py-8"
         >
           {LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="rounded-md px-2 py-3 font-mono text-base text-text-secondary transition-colors hover:bg-bg-card hover:text-text-primary"
+              className="group flex items-center gap-6 rounded-2xl p-2 transition-all hover:bg-black/5"
             >
-              {link.label}
+              <div className="flex h-[56px] w-[56px] shrink-0 items-center justify-center rounded-full bg-black/5 text-slate-600 transition-all duration-300 group-hover:bg-white group-hover:text-accent group-hover:shadow-sm">
+                {link.icon}
+              </div>
+              <span className="font-display text-[1.45rem] font-extrabold tracking-tight text-[#111827]">
+                {link.label}
+              </span>
             </a>
           ))}
-          <div className="mt-2 grid grid-cols-2 gap-3">
+          
+          <div className="mt-8 pt-6 border-t border-border-subtle grid grid-cols-2 gap-3 px-2">
             <Button
               as="a"
               href={profile.resumeUrl}
@@ -133,7 +128,7 @@ export default function Navbar() {
               variant="secondary"
               className="w-full justify-center"
             >
-              View
+              View Resume
             </Button>
             <Button
               as="a"

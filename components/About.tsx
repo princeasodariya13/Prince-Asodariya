@@ -30,7 +30,7 @@ const FOCUS_AREAS = [
 
 export default function About() {
   return (
-    <section id="about" className="py-[clamp(4.5rem,10vw,9rem)]">
+    <section id="about" className="py-[clamp(3rem,4vw,4rem)]">
       <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)]">
         <SectionHeading eyebrow="02 — about" title="What I build, and how." />
 

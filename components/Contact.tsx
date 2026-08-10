@@ -57,7 +57,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-[clamp(4.5rem,10vw,9rem)] bg-bg-primary">
+    <section id="contact" className="py-[clamp(3rem,4vw,4rem)] bg-bg-primary">
       <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)]">
         <SectionHeading
           eyebrow="07 — contact"

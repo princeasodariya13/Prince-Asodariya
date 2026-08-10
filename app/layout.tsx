@@ -57,6 +57,8 @@ export const metadata: Metadata = {
   },
 };
 
+import LenisProvider from "@/components/LenisProvider";
+
 export default function RootLayout({
   children,
 }: {
@@ -68,8 +70,10 @@ export default function RootLayout({
       className={`${display.variable} ${body.variable} ${mono.variable}`}
     >
       <body className="font-body antialiased">
-        <IndexRail />
-        {children}
+        <LenisProvider>
+          <IndexRail />
+          {children}
+        </LenisProvider>
       </body>
     </html>
   );
