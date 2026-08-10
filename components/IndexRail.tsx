@@ -134,10 +134,25 @@ export default function IndexRail() {
   };
 
   return (
-    <nav
-      aria-label="Section index"
-      // touch-none prevents standard scrolling while swiping on this area on mobile
-      className="fixed right-0 lg:right-6 top-1/2 z-40 -translate-y-1/2 flex flex-col gap-1.5 lg:gap-3 items-end lg:items-center py-10 px-4 lg:px-0 select-none touch-none"
+    <>
+      {/* Mobile Backdrop Blur Overlay */}
+      <div 
+        className="lg:hidden fixed inset-0 z-30 pointer-events-none transition-all duration-300"
+        style={{
+          backdropFilter: touchY !== null ? 'blur(6px)' : 'blur(0px)',
+          WebkitBackdropFilter: touchY !== null ? 'blur(6px)' : 'blur(0px)',
+          backgroundColor: touchY !== null ? 'rgba(248, 250, 252, 0.4)' : 'rgba(248, 250, 252, 0)', // Slate-50 tint
+          opacity: touchY !== null ? 1 : 0,
+        }}
+      />
+
+      <nav
+        aria-label="Section index"
+        // touch-none prevents standard scrolling while swiping on this area on mobile
+        className={`fixed right-0 lg:right-6 top-1/2 z-40 -translate-y-1/2 flex flex-col lg:gap-3 items-end lg:items-center py-10 px-4 lg:px-0 select-none touch-none ${
+          isIdle && touchY === null ? 'gap-0' : 'gap-4'
+        }`}
+        style={{ transition: 'gap 0.4s cubic-bezier(0.16, 1, 0.3, 1)' }}
       onTouchStart={handleTouchMove}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -173,7 +188,7 @@ export default function IndexRail() {
           <div key={id} className="relative group flex items-center justify-end w-full lg:w-auto">
             {/* Mobile Dial Label */}
             <div 
-               className="lg:hidden absolute right-full mr-3 font-mono text-[0.65rem] font-bold text-accent uppercase tracking-widest pointer-events-none origin-right drop-shadow-md"
+               className="lg:hidden absolute right-full mr-3 font-mono text-[0.65rem] font-bold text-slate-800 uppercase tracking-widest pointer-events-none origin-right drop-shadow-md"
                style={{
                  opacity: labelOpacity,
                  transform: `translateX(${xOffset}px) scale(${scale})`,
@@ -199,7 +214,7 @@ export default function IndexRail() {
                 ${isActive ? "lg:bg-black/5 lg:border lg:border-black/10 lg:!text-accent lg:shadow-sm lg:scale-110" : "lg:text-slate-500 lg:hover:bg-black/5 lg:hover:!text-accent"}
                 
                 /* Mobile Base */
-                h-8 w-10 justify-end
+                w-10 justify-end ${isIdle && touchY === null ? 'h-[20px]' : 'h-8'}
               `}
               style={{
                  transform: touchY !== null && isDialActive ? `translateX(${xOffset}px) scale(${scale})` : "",
@@ -233,6 +248,7 @@ export default function IndexRail() {
           </div>
         );
       })}
-    </nav>
+      </nav>
+    </>
   );
 }
