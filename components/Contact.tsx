@@ -63,9 +63,15 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-[clamp(3rem,4vw,4rem)] bg-bg-primary">
-      <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)]">
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:gap-16 items-start">
+    <section id="contact" className="relative py-[clamp(4rem,6vw,6rem)] bg-bg-primary overflow-hidden">
+      {/* Decorative Orbs for Contact Section */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute top-[20%] right-[-10%] w-[70vw] h-[70vw] lg:w-[500px] lg:h-[500px] bg-orange-400/10 rounded-full blur-[80px] animate-pulse" style={{ animationDuration: '10s' }} />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[80vw] h-[80vw] lg:w-[600px] lg:h-[600px] bg-purple-500/5 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '14s' }} />
+      </div>
+
+      <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)] relative z-10">
+        <div className="grid gap-14 lg:grid-cols-[1.2fr_1fr] lg:gap-16 items-start">
           <div className="flex flex-col">
             <SectionHeading
               eyebrow="07 — contact"
@@ -73,40 +79,48 @@ export default function Contact() {
               description="Have a role, project, or question? Send a message and I'll get back to you."
             />
 
-            <Reveal>
-              <div className="space-y-5 font-mono text-sm mt-10">
-                <p className="text-text-secondary text-base mb-8">
+            <Reveal delay={50}>
+              <div className="mt-8 lg:mt-10 bg-white/50 backdrop-blur-md rounded-2xl p-6 lg:p-0 lg:bg-transparent lg:backdrop-blur-none lg:border-none border border-slate-100 shadow-sm lg:shadow-none space-y-5 font-mono text-sm">
+                <p className="text-slate-600 text-[0.95rem] leading-relaxed mb-8">
                   I&apos;m currently open to new opportunities. Whether you have
                   a project in mind or just want to say hi — my inbox is always
                   open.
                 </p>
-                <a
-                href={`mailto:${profile.email}`}
-                className="flex items-center gap-3 text-text-primary transition-colors hover:text-accent group"
-              >
-                <span className="w-8 h-[1px] bg-[#e5e7eb] group-hover:bg-accent transition-colors" />
-                {profile.email}
-              </a>
-              <a
-                href={profile.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-text-primary transition-colors hover:text-accent group"
-              >
-                <span className="w-8 h-[1px] bg-[#e5e7eb] group-hover:bg-accent transition-colors" />
-                GitHub ↗
-              </a>
-              <a
-                href={profile.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-text-primary transition-colors hover:text-accent group"
-              >
-                <span className="w-8 h-[1px] bg-[#e5e7eb] group-hover:bg-accent transition-colors" />
-                LinkedIn ↗
-              </a>
-            </div>
-          </Reveal>
+                <div className="flex flex-col gap-4">
+                  <a
+                    href={`mailto:${profile.email}`}
+                    className="flex items-center gap-3 text-slate-800 font-bold transition-colors hover:text-accent group w-fit"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-orange-100 flex items-center justify-center transition-colors">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-slate-500 group-hover:text-accent"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </div>
+                    {profile.email}
+                  </a>
+                  <a
+                    href={profile.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-slate-800 font-bold transition-colors hover:text-accent group w-fit"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-orange-100 flex items-center justify-center transition-colors">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-slate-500 group-hover:text-accent"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    </div>
+                    GitHub ↗
+                  </a>
+                  <a
+                    href={profile.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-slate-800 font-bold transition-colors hover:text-accent group w-fit"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-orange-100 flex items-center justify-center transition-colors">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-slate-500 group-hover:text-accent"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </div>
+                    LinkedIn ↗
+                  </a>
+                </div>
+              </div>
+            </Reveal>
           </div>
 
           <Reveal delay={100}>

@@ -35,10 +35,14 @@ export default function Hero() {
         />
       </div>
 
-      {/* Ambient background glow */}
+      {/* Premium Ambient Background Aurora (Enhanced for Mobile) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-accent/5 blur-[120px]" />
-        <div className="absolute top-1/2 -right-40 w-[400px] h-[400px] rounded-full bg-accent/3 blur-[100px]" />
+        {/* Top-left Orange Glow */}
+        <div className="absolute -top-[10%] -left-[10%] w-[80vw] h-[80vw] lg:w-[600px] lg:h-[600px] rounded-full bg-accent/10 lg:bg-accent/5 blur-[80px] lg:blur-[120px] animate-pulse" style={{ animationDuration: '8s' }} />
+        {/* Right-side Purple Glow for contrast and depth */}
+        <div className="absolute top-[30%] -right-[20%] w-[90vw] h-[90vw] lg:w-[400px] lg:h-[400px] rounded-full bg-purple-500/10 lg:bg-accent/3 blur-[80px] lg:blur-[100px] animate-pulse" style={{ animationDuration: '12s', animationDelay: '2s' }} />
+        {/* Center subtle glow */}
+        <div className="absolute bottom-0 left-[20%] w-[60vw] h-[60vw] rounded-full bg-blue-500/5 blur-[100px] lg:hidden animate-pulse" style={{ animationDuration: '10s', animationDelay: '4s' }} />
       </div>
 
       {/* Soft Glow behind text to ensure legibility against the grid */}
@@ -46,12 +50,12 @@ export default function Hero() {
 
       <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)] relative z-10">
         <Reveal>
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-border-subtle px-4 py-1.5 font-mono text-[clamp(0.72rem,0.8vw,0.8rem)] text-text-secondary">
+          <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-black/5 bg-white/60 backdrop-blur-md px-4 py-1.5 font-mono text-[clamp(0.72rem,0.8vw,0.8rem)] font-semibold text-slate-700 shadow-[0_4px_24px_rgba(0,0,0,0.04)] ring-1 ring-white/50">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
             </span>
-            {profile.availability}
+            <span className="tracking-wide">{profile.availability}</span>
           </div>
         </Reveal>
 
@@ -71,7 +75,7 @@ export default function Hero() {
                 falloff="linear"
               />
             </div>
-            <span className="text-accent">.</span>
+            <span className="bg-gradient-to-tr from-accent to-orange-400 bg-clip-text text-transparent">.</span>
           </h1>
         </Reveal>
 
@@ -82,7 +86,7 @@ export default function Hero() {
         </Reveal>
 
         <Reveal delay={220}>
-          <p className="mt-4 max-w-xl text-[clamp(0.95rem,1vw,1.0625rem)] leading-[1.7] text-text-secondary">
+          <p className="mt-4 max-w-xl text-[clamp(0.95rem,1vw,1.0625rem)] leading-[1.7] text-slate-600 font-medium">
             {profile.tagline}
           </p>
         </Reveal>

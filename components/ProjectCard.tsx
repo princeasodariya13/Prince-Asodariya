@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Project } from "@/lib/types";
 
@@ -23,10 +24,40 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     ? "AI & DATA ENGINEERING" 
     : "WEB APPLICATION";
 
+  const [isMobileActive, setIsMobileActive] = useState(false);
+  const cardRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsMobileActive(entry.isIntersecting);
+      },
+      {
+        root: null,
+        rootMargin: "-40% 0px -40% 0px", // Extreme precision: exact center 20% of the screen
+        threshold: 0,
+      }
+    );
+
+    if (cardRef.current) observer.observe(cardRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Link 
+      ref={cardRef}
       href={`/projects/${id}`}
-      className="group relative flex h-full flex-col overflow-hidden rounded-[28px] border border-border-subtle bg-bg-primary p-6 sm:p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 outline-none focus-visible:ring-2 focus-visible:ring-accent"
+      data-mobile-active={isMobileActive}
+      className={`group relative flex h-full flex-col overflow-hidden rounded-[32px] border border-slate-100 p-6 sm:p-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] outline-none
+        /* Desktop base & hover */
+        lg:scale-100 lg:opacity-100 lg:blur-0 lg:translate-y-0 lg:shadow-none lg:bg-bg-primary lg:ring-0
+        lg:hover:-translate-y-2 lg:hover:shadow-2xl lg:hover:bg-white lg:hover:ring-1 lg:hover:ring-black/5
+        /* Mobile dynamic scroll states */
+        ${isMobileActive 
+          ? 'scale-100 opacity-100 shadow-[0_20px_40px_rgba(0,0,0,0.12)] -translate-y-2 ring-1 ring-accent/30 bg-white' 
+          : 'scale-[0.90] opacity-40 blur-[2px] shadow-none translate-y-6 bg-slate-50/50'
+        }
+      `}
       aria-label={`Read case study for ${title}`}
     >
       
@@ -125,7 +156,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {categoryLabel}
         </div>
         
-        <h3 className="block mb-4 font-display text-2xl font-bold leading-tight tracking-tight text-text-primary group-hover:text-accent transition-colors">
+        <h3 className="block mb-4 font-display text-2xl font-bold leading-tight tracking-tight text-text-primary group-hover:text-accent data-[mobile-active=true]:max-lg:text-accent transition-colors">
           {title}
         </h3>
         
@@ -143,8 +174,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           </span>
         </div>
         
-        <span className="text-[0.8rem] font-semibold text-text-muted group-hover:text-text-primary transition-colors flex items-center gap-1 shrink-0">
-          Case Study <span className="text-[0.9rem]">↗</span>
+        <span className="text-[0.8rem] font-semibold text-text-muted group-hover:text-text-primary data-[mobile-active=true]:max-lg:text-text-primary transition-colors flex items-center gap-1 shrink-0">
+          Case Study <span className="text-[0.9rem] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 data-[mobile-active=true]:max-lg:translate-x-0.5 data-[mobile-active=true]:max-lg:-translate-y-0.5 transition-transform">↗</span>
         </span>
       </div>
     </Link>
