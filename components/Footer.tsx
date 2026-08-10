@@ -1,13 +1,7 @@
 import { profile } from "@/lib/data";
+import { FiGithub, FiLinkedin, FiMail, FiPhone } from "react-icons/fi";
 
-const LINKS = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#contact", label: "Contact" },
-];
+// Navigation links removed as per requested UI
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -25,56 +19,46 @@ export default function Footer() {
           </p>
         </div>
 
-        <nav aria-label="Footer" className="flex flex-wrap gap-x-6 gap-y-2">
-          {LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="font-mono text-sm text-text-secondary transition-colors hover:text-text-primary"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="flex gap-6 font-mono text-sm">
+      </div>
+      <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)] mt-10 border-t border-border-subtle pt-6 flex flex-col-reverse md:flex-row items-center justify-between gap-4">
+        <p className="font-mono text-[0.72rem] text-text-muted">
+          © {year} {profile.name}. All rights reserved.
+        </p>
+        
+        <div className="flex items-center gap-3">
           <a
             href={profile.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-text-secondary transition-colors hover:text-accent"
+            className="text-text-secondary transition-colors hover:text-text-primary p-2 rounded-full hover:bg-black/5"
+            aria-label="GitHub"
           >
-            GitHub
+            <FiGithub size={18} />
           </a>
           <a
             href={profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-text-secondary transition-colors hover:text-accent"
+            className="text-text-secondary transition-colors hover:text-text-primary p-2 rounded-full hover:bg-black/5"
+            aria-label="LinkedIn"
           >
-            LinkedIn
-          </a>
-          <a
-            href={(profile as any).instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-text-secondary transition-colors hover:text-accent"
-          >
-            Instagram
+            <FiLinkedin size={18} />
           </a>
           <a
             href={`mailto:${profile.email}`}
-            className="text-text-secondary transition-colors hover:text-accent"
+            className="text-text-secondary transition-colors hover:text-text-primary p-2 rounded-full hover:bg-black/5"
+            aria-label="Email"
           >
-            Email
+            <FiMail size={18} />
+          </a>
+          <a
+            href="tel:+918320990370"
+            className="text-text-secondary transition-colors hover:text-text-primary p-2 rounded-full hover:bg-black/5"
+            aria-label="Phone"
+          >
+            <FiPhone size={18} />
           </a>
         </div>
-      </div>
-
-      <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)] mt-10 border-t border-border-subtle pt-6">
-        <p className="font-mono text-[0.72rem] text-text-muted">
-          © {year} {profile.name}. All rights reserved. Built with Next.js &amp; Tailwind CSS.
-        </p>
       </div>
     </footer>
   );
