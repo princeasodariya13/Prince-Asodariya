@@ -1,7 +1,16 @@
 "use client";
 
-import React, { forwardRef, useMemo, useRef, useEffect } from 'react';
+import React, { forwardRef, useMemo, useRef, useEffect, RefObject } from 'react';
 import { motion } from 'motion/react';
+
+interface VariableProximityProps extends React.HTMLAttributes<HTMLSpanElement> {
+  label: string;
+  fromFontVariationSettings: string;
+  toFontVariationSettings: string;
+  containerRef?: RefObject<HTMLElement | null>;
+  radius?: number;
+  falloff?: 'linear' | 'exponential' | 'gaussian';
+}
 
 const useMousePositionRef = () => {
   const mousePositionRef = useRef({ x: Infinity, y: Infinity });
@@ -26,11 +35,11 @@ export default function VariableProximity({
   radius = 100,
   falloff = 'linear',
   ...props
-}) {
+}: VariableProximityProps) {
   const mousePositionRef = useMousePositionRef();
 
-  const parseVariationSettings = (settingsStr) => {
-    const settings = {};
+  const parseVariationSettings = (settingsStr: string) => {
+    const settings: Record<string, number> = {};
     const parts = settingsStr.split(',');
     parts.forEach(part => {
       const match = part.match(/'([^']+)'\s+([\d.]+)/);
@@ -63,11 +72,21 @@ export default function VariableProximity({
   );
 }
 
-function Letter({ char, mousePositionRef, radius, falloff, fromSettings, toSettings, axes }) {
-  const letterRef = useRef(null);
+interface LetterProps {
+  char: string;
+  mousePositionRef: React.MutableRefObject<{ x: number; y: number }>;
+  radius: number;
+  falloff: 'linear' | 'exponential' | 'gaussian';
+  fromSettings: Record<string, number>;
+  toSettings: Record<string, number>;
+  axes: string[];
+}
+
+function Letter({ char, mousePositionRef, radius, falloff, fromSettings, toSettings, axes }: LetterProps) {
+  const letterRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    let animationFrameId;
+    let animationFrameId: number;
     const animate = () => {
       if (!letterRef.current) return;
       const rect = letterRef.current.getBoundingClientRect();

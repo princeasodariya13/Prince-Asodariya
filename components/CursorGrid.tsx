@@ -2,6 +2,22 @@
 
 import React, { useRef, useEffect } from 'react';
 
+interface CursorGridProps {
+  cellSize?: number;
+  color?: string;
+  radius?: number;
+  falloff?: string;
+  holdTime?: number;
+  fadeDuration?: number;
+  lineWidth?: number;
+  maxOpacity?: number;
+  fillOpacity?: number;
+  gridOpacity?: number;
+  cellRadius?: number;
+  clickPulse?: boolean;
+  pulseSpeed?: number;
+}
+
 export default function CursorGrid({
   cellSize = 70,
   color = "#000000",
@@ -16,7 +32,7 @@ export default function CursorGrid({
   cellRadius = 0,
   clickPulse = true,
   pulseSpeed = 650,
-}) {
+}: CursorGridProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {

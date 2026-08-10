@@ -1,7 +1,23 @@
 "use client";
 
-import { useRef } from 'react';
+import { useRef, ReactNode } from 'react';
 import { motion, useInView } from 'motion/react';
+import type { Easing } from 'motion/react';
+
+interface AnimatedContentProps {
+  children: ReactNode;
+  distance?: number;
+  direction?: "vertical" | "horizontal";
+  reverse?: boolean;
+  duration?: number;
+  ease?: string | Easing;
+  initialOpacity?: number;
+  animateOpacity?: boolean;
+  scale?: number;
+  threshold?: number;
+  delay?: number;
+  className?: string;
+}
 
 export default function AnimatedContent({
   children,
@@ -16,15 +32,15 @@ export default function AnimatedContent({
   threshold = 0.1,
   delay = 0,
   className = "",
-}) {
-  const ref = useRef(null);
+}: AnimatedContentProps) {
+  const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: threshold });
 
   const isVertical = direction === "vertical";
   const startOffset = reverse ? -distance : distance;
   
   // Clean up GSAP-style ease strings if provided to Framer Motion standard equivalents
-  let motionEase = ease;
+  let motionEase: any = ease;
   if (typeof ease === 'string' && ease === 'bounce.out') {
     motionEase = 'backOut';
   }
