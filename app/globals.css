@@ -179,10 +179,11 @@ a:hover {
 .btn-primary {
   background: var(--text-primary);
   color: var(--text-inverted);
-  transition: background-color 180ms ease, transform 150ms ease;
+  transition: background-color 180ms ease, transform 150ms ease, color 150ms ease;
 }
 .btn-primary:hover {
   background: var(--accent);
+  color: var(--text-inverted);
   transform: translateY(-1px);
 }
 .btn-primary:active {
@@ -193,11 +194,12 @@ a:hover {
   background: transparent;
   color: var(--text-primary);
   border: 1px solid var(--border-subtle);
-  transition: border-color 180ms ease, background-color 180ms ease;
+  transition: border-color 180ms ease, background-color 180ms ease, color 150ms ease;
 }
 .btn-secondary:hover {
   border-color: var(--text-primary);
   background: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 .nav-link {
