@@ -55,7 +55,7 @@ export default function VariableProximity({
   const axes = useMemo(() => Object.keys(fromSettings), [fromSettings]);
 
   return (
-    <span className={`${className} inline-flex`} {...props}>
+    <span className={`${className} inline`} {...props}>
       {label.split('').map((char, index) => (
         <Letter
           key={index}
@@ -129,12 +129,16 @@ function Letter({ char, mousePositionRef, radius, falloff, fromSettings, toSetti
     return () => cancelAnimationFrame(animationFrameId);
   }, [radius, falloff, axes, fromSettings, toSettings, mousePositionRef]);
 
+  if (char === ' ') {
+    return <span> </span>;
+  }
+
   return (
     <motion.span
       ref={letterRef}
       style={{ display: 'inline-block' }}
     >
-      {char === ' ' ? '\u00A0' : char}
+      {char}
     </motion.span>
   );
 }

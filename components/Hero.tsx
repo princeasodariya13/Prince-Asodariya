@@ -48,97 +48,136 @@ export default function Hero() {
       {/* Soft Glow behind text to ensure legibility against the grid */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] h-[600px] bg-bg-primary/90 blur-[100px] rounded-full pointer-events-none z-[5]" />
 
-      <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)] relative z-10">
-        <Reveal>
-          <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-black/5 bg-white/60 backdrop-blur-md px-4 py-1.5 font-mono text-[clamp(0.72rem,0.8vw,0.8rem)] font-semibold text-slate-700 shadow-[0_4px_24px_rgba(0,0,0,0.04)] ring-1 ring-white/50">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-            </span>
-            <span className="tracking-wide">{profile.availability}</span>
-          </div>
-        </Reveal>
-
-        <Reveal delay={80}>
-          <h1
-            ref={containerRef}
-            className="font-display text-[clamp(2.75rem,7vw,6.5rem)] font-medium leading-[1.02] tracking-[-0.03em] text-text-primary"
-          >
-            <div style={{ position: 'relative', display: 'inline-block' }}>
-              <VariableProximity
-                label={profile.name}
-                className="variable-proximity-demo"
-                fromFontVariationSettings="'wght' 400, 'opsz' 9"
-                toFontVariationSettings="'wght' 1000, 'opsz' 40"
-                containerRef={containerRef}
-                radius={100}
-                falloff="linear"
-              />
+      <div className="w-full max-w-[1240px] mx-auto px-[clamp(1.25rem,5vw,4rem)] relative z-10 grid lg:grid-cols-[1.3fr_0.7fr] gap-12 lg:gap-4 items-center">
+        {/* Left Column - Text Content */}
+        <div className="pr-0 lg:pr-8">
+          <Reveal>
+            <div className="mb-4 md:mb-6 font-display text-[clamp(1.25rem,2vw,1.75rem)] font-bold text-slate-800">
+              👋 Hi, I'm <span className="border-b-[4px] border-red-500 pb-1">{profile.name}</span>
             </div>
-            <span className="bg-gradient-to-tr from-accent to-orange-400 bg-clip-text text-transparent">.</span>
-          </h1>
-        </Reveal>
+          </Reveal>
 
-        <Reveal delay={160}>
-          <p className="mt-5 max-w-xl font-mono text-[clamp(1.05rem,1.3vw,1.2rem)] leading-[1.65] text-text-secondary">
-            {profile.role}
-          </p>
-        </Reveal>
-
-        <Reveal delay={220}>
-          <p className="mt-4 max-w-xl text-[clamp(0.95rem,1vw,1.0625rem)] leading-[1.7] text-slate-600 font-medium">
-            {profile.tagline}
-          </p>
-        </Reveal>
-
-        <AnimatedContent
-          distance={70}
-          direction="vertical"
-          reverse
-          duration={1}
-          ease="bounce.out"
-          initialOpacity={0}
-          animateOpacity
-          scale={0.9}
-          threshold={0.1}
-          delay={0.3}
-        >
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <Button as="a" href="#projects" variant="primary">
-              View Projects
-            </Button>
-            <Button as="a" href="#contact" variant="secondary">
-              Contact Me
-            </Button>
-          </div>
-        </AnimatedContent>
-
-        <Reveal delay={380}>
-          <div className="mt-10 flex items-center gap-6 font-mono text-sm text-text-secondary">
-            <a
-              href={profile.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-accent"
+          <Reveal delay={80}>
+            <h1
+              ref={containerRef}
+              className="font-display text-[clamp(2.75rem,5.5vw,5.5rem)] font-extrabold leading-[1.05] tracking-tight text-slate-900"
             >
-              GitHub ↗
-            </a>
-            <a
-              href={profile.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-accent"
-            >
-              LinkedIn ↗
-            </a>
-            <a
-              href={(profile as any).instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-accent"
-            >
-              Instagram ↗
-            </a>
+              <div className="block">
+                <VariableProximity
+                  label="MERN / Full-Stack"
+                  className="variable-proximity-demo inline"
+                  fromFontVariationSettings="'wght' 400, 'opsz' 9"
+                  toFontVariationSettings="'wght' 900, 'opsz' 40"
+                  containerRef={containerRef}
+                  radius={100}
+                  falloff="linear"
+                />
+              </div>
+              <div className="flex items-baseline mt-2">
+                <VariableProximity
+                  label="Developer"
+                  className="variable-proximity-demo inline"
+                  fromFontVariationSettings="'wght' 400, 'opsz' 9"
+                  toFontVariationSettings="'wght' 900, 'opsz' 40"
+                  containerRef={containerRef}
+                  radius={100}
+                  falloff="linear"
+                />
+                <span className="text-red-500 ml-1 leading-none">.</span>
+              </div>
+            </h1>
+          </Reveal>
+
+          <Reveal delay={160}>
+            <p className="mt-6 max-w-xl text-[clamp(1.05rem,1.3vw,1.2rem)] leading-[1.7] text-slate-600 font-medium">
+              {profile.tagline}
+            </p>
+          </Reveal>
+
+          <Reveal delay={200}>
+            <p className="mt-4 max-w-xl text-[0.85rem] md:text-[0.95rem] font-medium text-slate-400">
+              Based in {profile.location}.
+            </p>
+          </Reveal>
+
+          <AnimatedContent
+            distance={70}
+            direction="vertical"
+            reverse
+            duration={1}
+            ease="bounce.out"
+            initialOpacity={0}
+            animateOpacity
+            scale={0.9}
+            threshold={0.1}
+            delay={0.3}
+          >
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <a 
+                href="#contact" 
+                className="inline-flex items-center justify-center rounded-[20px] bg-black px-6 py-3.5 text-sm font-bold !text-white transition-all hover:bg-slate-800 hover:scale-[1.02] shadow-[0_4px_14px_rgba(0,0,0,0.1)]"
+                style={{ color: '#ffffff' }}
+              >
+                Hire Me as Developer <span className="ml-2 !text-white" style={{ color: '#ffffff' }}>↗</span>
+              </a>
+              <a 
+                href="#projects" 
+                className="inline-flex items-center justify-center rounded-[20px] bg-white border border-slate-200 px-6 py-3.5 text-sm font-bold text-slate-800 transition-all hover:bg-slate-50 hover:scale-[1.02] shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
+              >
+                View My Projects
+              </a>
+            </div>
+          </AnimatedContent>
+
+          <Reveal delay={380}>
+            <div className="mt-10 flex items-center gap-6 font-mono text-sm text-text-secondary">
+              <a
+                href={profile.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-accent"
+              >
+                GitHub ↗
+              </a>
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-accent"
+              >
+                LinkedIn ↗
+              </a>
+              <a
+                href={(profile as any).instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-accent"
+              >
+                Instagram ↗
+              </a>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Right Column - Profile Image */}
+        <Reveal delay={400}>
+          <div className="hidden lg:flex justify-end items-center relative w-full">
+            <div className="relative w-[280px] h-[280px] xl:w-[320px] xl:h-[320px]">
+              {/* Soft White Outer Glow */}
+              <div className="absolute inset-[-40px] bg-white/40 rounded-full blur-[60px] pointer-events-none" />
+              {/* Subtle Color Pulse */}
+              <div className="absolute inset-[-20px] bg-gradient-to-tr from-accent/10 to-purple-500/10 rounded-full blur-[40px] animate-pulse pointer-events-none" />
+              
+              {/* Image Container with Thick White Border */}
+              <div className="relative w-full h-full rounded-full overflow-hidden border-[8px] border-white shadow-[0_20px_60px_rgba(0,0,0,0.08)] bg-white">
+                <img 
+                  src="/image-Prince3.png" 
+                  alt={profile.name} 
+                  className="w-full h-full object-cover object-top"
+                  loading="eager"
+                />
+              </div>
+            </div>
           </div>
         </Reveal>
       </div>
