@@ -4,15 +4,21 @@ import Reveal from "./Reveal";
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative py-[clamp(4rem,6vw,6rem)] bg-[#f8fafc] overflow-hidden">
+    <section id="experience" className="relative pt-[clamp(3rem,4vw,4rem)] pb-[clamp(4rem,6vw,6rem)] bg-[#f8fafc] overflow-x-clip">
       {/* Decorative gradient for mobile & desktop */}
       <div className="absolute top-40 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px] pointer-events-none -z-10" />
       <div className="absolute bottom-20 left-10 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none -z-10" />
       
       <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)] relative z-10">
-        <SectionHeading eyebrow="05 — experience" title="Where I've worked." />
+        
+        {/* Sticky Background Heading */}
+        <div className="md:absolute md:inset-0 md:px-[clamp(1.25rem,5vw,5rem)] pointer-events-none z-0">
+          <div className="sticky top-24 md:top-32 pt-2 md:pt-4 mb-12 md:mb-0">
+            <SectionHeading eyebrow="05 — experience" title="Where I've worked." />
+          </div>
+        </div>
 
-        <div className="mt-16 lg:mt-20 relative before:absolute before:inset-0 before:ml-[1.1rem] md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-200 before:to-transparent">
+        <div className="relative z-20 md:pt-4 before:absolute before:inset-0 before:ml-[1.1rem] md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-200 before:to-transparent">
           {experience.map((entry, i) => (
             <div key={entry.id} className="relative flex items-start md:justify-normal md:odd:flex-row-reverse group mb-14 last:mb-0">
               

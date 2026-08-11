@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const SECTIONS = [
   {
@@ -67,32 +68,59 @@ export default function IndexRail() {
   }, []);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: "-30% 0px -30% 0px", threshold: 0 }
-    );
+    if (pathname !== "/") {
+      setActive("");
+      return;
+    }
 
-    const observeSections = () => {
-      SECTIONS.forEach(({ id }) => {
-        const el = document.getElementById(id);
-        if (el) observer.observe(el);
-      });
+    const handleScroll = () => {
+      const sections = SECTIONS.map(s => document.getElementById(s.id)).filter(Boolean) as HTMLElement[];
+      
+      let currentSection = "";
+      let minDistance = Infinity;
+      const viewportCenter = window.innerHeight / 2;
+
+      for (const section of sections) {
+        const rect = section.getBoundingClientRect();
+        
+        // If the center of the viewport is within the section bounds
+        if (rect.top <= viewportCenter && rect.bottom >= viewportCenter) {
+          currentSection = section.id;
+          break; 
+        }
+        
+        // Fallback: find the section closest to the center
+        const distanceToCenter = Math.min(
+          Math.abs(rect.top - viewportCenter),
+          Math.abs(rect.bottom - viewportCenter)
+        );
+        
+        if (distanceToCenter < minDistance) {
+          minDistance = distanceToCenter;
+          currentSection = section.id;
+        }
+      }
+
+      if (currentSection) {
+        setActive(currentSection);
+      }
     };
 
-    observeSections();
-    const timeoutId = setTimeout(observeSections, 500);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    
+    handleScroll();
+    
+    const t1 = setTimeout(handleScroll, 100);
+    const t2 = setTimeout(handleScroll, 500);
+    const t3 = setTimeout(handleScroll, 1500);
 
     return () => {
-      clearTimeout(timeoutId);
-      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
     };
-  }, []);
+  }, [pathname]);
 
   if (pathname.startsWith("/projects/")) {
     return null;
@@ -126,8 +154,12 @@ export default function IndexRail() {
         }
       });
       if (closestId) {
-        document.getElementById(closestId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        setActive(closestId);
+        if (pathname === "/") {
+          document.getElementById(closestId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setActive(closestId);
+        } else {
+          window.location.href = `/#${closestId}`;
+        }
       }
     }
     setTouchY(null);
@@ -198,13 +230,15 @@ export default function IndexRail() {
               {label}
             </div>
 
-            <a
+            <Link
               ref={(el) => { itemsRef.current[index] = el; }}
-              href={`#${id}`}
+              href={`/#${id}`}
               onClick={(e) => {
-                e.preventDefault();
-                setActive(id);
-                document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (pathname === "/") {
+                  e.preventDefault();
+                  setActive(id);
+                  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
               }}
               className={`
                 flex items-center relative transition-all duration-300
@@ -239,7 +273,7 @@ export default function IndexRail() {
                   height: isDialActive && touchY !== null ? '2.5px' : undefined,
                 }}
               />
-            </a>
+            </Link>
             
             {/* Desktop Hover Tooltip */}
             <div className="hidden lg:block absolute right-full top-1/2 -translate-y-1/2 mr-4 rounded bg-text-primary px-2.5 py-1 text-[0.7rem] font-semibold tracking-wide text-bg-primary opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-x-1 pointer-events-none whitespace-nowrap shadow-md">

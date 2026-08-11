@@ -58,6 +58,7 @@ export const metadata: Metadata = {
 };
 
 import LenisProvider from "@/components/LenisProvider";
+import IntroAnimation from "@/components/IntroAnimation";
 
 export default function RootLayout({
   children,
@@ -68,8 +69,10 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${display.variable} ${body.variable} ${mono.variable}`}
+      data-scroll-behavior="smooth"
     >
       <body className="font-body antialiased">
+        <IntroAnimation />
         <LenisProvider>
           <IndexRail />
           {children}

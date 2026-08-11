@@ -5,7 +5,7 @@ import ProjectCard from "./ProjectCard";
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-[clamp(3rem,4vw,4rem)]">
+    <section id="projects" className="pt-[clamp(3rem,4vw,4rem)] pb-8 lg:pb-12">
       <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)]">
         <SectionHeading
           eyebrow="04 — projects"
