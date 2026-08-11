@@ -48,10 +48,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       ref={cardRef}
       href={`/projects/${id}`}
       data-mobile-active={isMobileActive}
-      className={`group relative flex h-full flex-col overflow-hidden rounded-[32px] border border-slate-100 p-6 sm:p-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] outline-none
+      className={`group relative flex h-full flex-col overflow-hidden rounded-[32px] border border-slate-100 p-6 sm:p-8 transition-all duration-500 ease-out outline-none
         /* Desktop base & hover */
         lg:scale-100 lg:opacity-100 lg:blur-0 lg:translate-y-0 lg:shadow-none lg:bg-bg-primary lg:ring-0
-        lg:hover:-translate-y-2 lg:hover:shadow-2xl lg:hover:bg-white lg:hover:ring-1 lg:hover:ring-black/5
+        lg:hover:scale-[1.03] lg:hover:-translate-y-2 lg:hover:shadow-2xl lg:hover:bg-white lg:hover:ring-1 lg:hover:ring-black/5
         /* Mobile dynamic scroll states */
         ${isMobileActive 
           ? 'scale-100 opacity-100 shadow-[0_20px_40px_rgba(0,0,0,0.12)] -translate-y-2 ring-1 ring-accent/30 bg-white' 

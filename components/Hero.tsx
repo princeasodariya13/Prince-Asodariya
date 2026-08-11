@@ -161,7 +161,7 @@ export default function Hero() {
 
         {/* Right Column - Profile Image */}
         <Reveal delay={400}>
-          <div className="hidden lg:flex justify-end items-center relative w-full">
+          <div className="hidden lg:flex justify-start lg:-translate-x-8 xl:-translate-x-12 items-center relative w-full">
             <div className="relative w-[280px] h-[280px] xl:w-[320px] xl:h-[320px]">
               {/* Soft White Outer Glow */}
               <div className="absolute inset-[-40px] bg-white/40 rounded-full blur-[60px] pointer-events-none" />

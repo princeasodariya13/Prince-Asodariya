@@ -139,7 +139,7 @@ export default function Contact() {
                     value={values.name}
                     onChange={(e) => setValues((v) => ({ ...v, name: e.target.value }))}
                     className="w-full bg-[#f9fafb] border border-[#f3f4f6] rounded-xl px-3.5 py-2.5 text-[#111827] text-[0.9rem] focus:border-[#d1d5db] focus:ring-4 focus:ring-gray-100 outline-none transition-all placeholder:text-[#d1d5db]"
-                    placeholder="Jane Doe"
+                    placeholder="Your name"
                   />
                   {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
                 </div>
@@ -154,7 +154,7 @@ export default function Contact() {
                     value={values.email}
                     onChange={(e) => setValues((v) => ({ ...v, email: e.target.value }))}
                     className="w-full bg-[#f9fafb] border border-[#f3f4f6] rounded-xl px-3.5 py-2.5 text-[#111827] text-[0.9rem] focus:border-[#d1d5db] focus:ring-4 focus:ring-gray-100 outline-none transition-all placeholder:text-[#d1d5db]"
-                    placeholder="jane@company.com"
+                    placeholder="user@company.com"
                   />
                   {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
                 </div>
