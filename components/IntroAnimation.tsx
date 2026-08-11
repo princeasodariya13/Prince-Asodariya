@@ -83,7 +83,7 @@ export default function IntroAnimation() {
         {/* Main Name that flies to the header */}
         <h1 
           ref={nameRef}
-          className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 origin-top-left whitespace-nowrap"
+          className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 origin-top-left whitespace-nowrap leading-none"
           style={{
              opacity: phase === "hidden" ? 0 : 1,
              transform: phase === "fly-up" ? transformStyle : "translate(0, 0) scale(1)",

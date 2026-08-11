@@ -45,7 +45,7 @@ export default function Navbar() {
         <Link
           href="/#home"
           id="header-logo"
-          className="font-display text-lg font-semibold tracking-tight text-text-primary"
+          className="font-display text-lg font-bold tracking-tight text-slate-900 leading-none"
         >
           {profile.name}
           <span className="text-accent">.</span>
