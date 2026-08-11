@@ -8,12 +8,6 @@ export default function IntroAnimation() {
   const [transformStyle, setTransformStyle] = useState("");
 
   useEffect(() => {
-    // Only play once per session
-    if (sessionStorage.getItem("intro_played")) {
-      setPhase("done");
-      return;
-    }
-    
     // Prevent scrolling while intro plays
     document.body.style.overflow = "hidden";
 
@@ -29,8 +23,8 @@ export default function IntroAnimation() {
         const logoRect = logo.getBoundingClientRect();
         const nameRect = nameEl.getBoundingClientRect();
         
-        // Calculate the scale needed to match the height of the header logo
-        const targetScale = logoRect.height / nameRect.height;
+        // Calculate the scale needed to match the width of the header logo for extreme sub-pixel accuracy
+        const targetScale = logoRect.width / nameRect.width;
         
         // Calculate exact X and Y movement from top-left to top-left
         const translateX = logoRect.left - nameRect.left;
@@ -48,7 +42,6 @@ export default function IntroAnimation() {
     // Phase 3: Done, clean up
     const t3 = setTimeout(() => {
       setPhase("done");
-      sessionStorage.setItem("intro_played", "true");
       document.body.style.overflow = "";
     }, 3200); // 1.2s for the fly animation to finish
 
@@ -63,13 +56,15 @@ export default function IntroAnimation() {
   if (phase === "done") return null;
 
   return (
-    <div
-      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-white pointer-events-none transition-opacity duration-[1200ms] ease-in-out"
-      style={{
-        opacity: phase === "fly-up" ? 0 : 1, // Background fades out smoothly while flying
-      }}
-    >
-      <div className="flex flex-col items-center text-center select-none">
+    <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center pointer-events-none">
+      
+      {/* Background that fades out smoothly while flying */}
+      <div 
+        className="absolute inset-0 bg-white transition-opacity duration-[1200ms] ease-in-out"
+        style={{ opacity: phase === "fly-up" ? 0 : 1 }}
+      />
+
+      <div className="relative z-10 flex flex-col items-center text-center select-none">
         
         {/* Welcome Text */}
         <p className="font-mono text-sm uppercase tracking-widest text-slate-400 mb-4 transition-all duration-700 ease-out"

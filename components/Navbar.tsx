@@ -18,6 +18,14 @@ const LINKS = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [introFinished, setIntroFinished] = useState(true); // default true for SSR
+
+  useEffect(() => {
+    // Always hide initially when the component mounts to wait for IntroAnimation
+    setIntroFinished(false);
+    const timer = setTimeout(() => setIntroFinished(true), 3200);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -44,11 +52,27 @@ export default function Navbar() {
       <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)] flex h-[72px] items-center justify-between">
         <Link
           href="/#home"
-          id="header-logo"
-          className="font-display text-lg font-bold tracking-tight text-slate-900 leading-none"
+          className="flex items-center gap-2.5 group"
         >
-          {profile.name}
-          <span className="text-accent">.</span>
+          {/* Logo Image */}
+          <div className={`transition-opacity duration-300 ${introFinished ? "opacity-100" : "opacity-0"}`}>
+            <img 
+              src="/logo.png" 
+              alt="Logo" 
+              className="w-9 h-9 rounded-full object-cover transition-transform group-hover:scale-105" 
+            />
+          </div>
+          
+          {/* Text Logo */}
+          <span
+            id="header-logo"
+            className={`font-display text-lg font-bold tracking-tight text-slate-900 leading-none inline-block ${
+              introFinished ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            {profile.name}
+            <span className="text-accent">.</span>
+          </span>
         </Link>
 
         <div className="relative group hidden md:block">
