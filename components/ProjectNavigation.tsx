@@ -127,7 +127,6 @@ export default function ProjectNavigation() {
                 strokeDasharray="62.83"
                 strokeDashoffset={dashOffset}
                 strokeLinecap="round"
-                className="transition-all duration-150 ease-out"
               />
             </svg>
           </div>
