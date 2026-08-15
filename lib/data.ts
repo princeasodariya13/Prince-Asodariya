@@ -2,6 +2,105 @@ import { EducationEntry, ExperienceEntry, Project, SkillCategory } from "./types
 
 export const projects: (Project & { isPlaceholder?: boolean })[] = [
   {
+    id: "filedrop",
+    title: "FileDrop",
+    description: "A guest-first temporary file-sharing platform designed for large-file transfers. Features a highly resilient, cross-refresh resumable multipart upload engine, storage quotas, and atomic download limits.",
+    techStack: ["Next.js", "React", "TypeScript", "Node.js", "Express.js", "MongoDB", "Backblaze B2"],
+    features: [
+      "Guest-first large file sharing with no mandatory user accounts",
+      "Adaptive concurrent multipart uploads with cross-refresh resumability",
+      "Strict unique-receiver download limits and active-download protection",
+      "Background cleanup workers for abandoned sessions and expired files",
+    ],
+    githubUrl: "https://github.com/princeasodariya13/FileDrop",
+    liveUrl: "https://file-drop-free.vercel.app",
+    image: "/projects/filedrop.png",
+    purpose: "To solve the engineering challenge of reliable, resume-capable large file uploads without routing gigabytes of data through a Node.js backend, while ensuring precise download limits and storage cleanup.",
+    workflow: [
+      "User selects a massive file; the backend reserves quota and creates a multipart upload session.",
+      "The browser adaptively uploads chunks directly to Backblaze B2 using presigned URLs.",
+      "If the browser crashes or refreshes, the user reselects the file and resumes instantly via B2 ListParts.",
+      "Receivers get unique, rate-limited, and time-leased presigned download URLs."
+    ],
+    impact: "Built a highly scalable file-sharing utility capable of handling 10GB+ files seamlessly, protecting storage costs through rigorous cleanup and atomic database operations.",
+    architecture: [
+      {
+        title: "Frontend Upload Engine",
+        description: "Custom React orchestrator utilizing Web Workers, exponential backoff retries, and adaptive concurrency to maximize bandwidth.",
+      },
+      {
+        title: "Storage Layer",
+        description: "Direct-to-B2 S3-compatible multipart uploads, entirely bypassing the Node server to eliminate memory bottlenecks.",
+      },
+      {
+        title: "Cleanup Worker",
+        description: "Idempotent Cron jobs that sweep abandoned uploads and expired files while safely respecting active download leases.",
+      }
+    ],
+    deepDive: {
+      title: "Resilient File Upload Architecture",
+      architecture: "Direct-to-Cloud Multipart Engine",
+      methodology: "Implemented local storage locks and B2 ETags to allow cross-refresh upload resumption without losing previously uploaded chunks.",
+      dataset: "Designed to securely handle and route file streams up to massive gigabyte scales without server memory strain.",
+      pipeline: [
+        "Backend allocates storage quota",
+        "Frontend uploads directly to B2 via presigned URLs",
+        "Backend verifies ETags and commits the file"
+      ],
+      metrics: [
+        { label: "CONCURRENCY MAX", value: "8" },
+        { label: "RETRY DELAY LIMIT", value: "16s" }
+      ]
+    },
+    challenges: [
+      {
+        problem: "Memory bottlenecks during large uploads",
+        solution: "Engineered a presigned URL architecture so browsers upload chunks directly to cloud storage, bypassing the Express backend entirely."
+      },
+      {
+        problem: "Interrupted uploads on page refresh",
+        solution: "Built a robust session recovery system that fetches B2 ListParts and skips already uploaded chunks upon user re-selection."
+      }
+    ],
+    coreFeatures: [
+      {
+        title: "Cross-Refresh Resume",
+        description: "Uploads seamlessly pause and resume across browser crashes or accidental page refreshes."
+      },
+      {
+        title: "Unique Receiver Limits",
+        description: "Atomic MongoDB operations ensure exactly the configured number of unique users can download the file, preventing link sharing abuse."
+      },
+      {
+        title: "Active Download Protection",
+        description: "Background storage cleanup jobs respect 5-minute heartbeat leases, preventing files from being deleted while a user is actively downloading."
+      },
+      {
+        title: "Adaptive Concurrency",
+        description: "The upload engine dynamically adjusts the number of concurrent chunk workers based on real-time network success and error rates."
+      }
+    ],
+    results: {
+      headline: "A production-grade, highly reliable file sharing utility.",
+      description: "Successfully decoupled the data plane (B2) from the control plane (Node.js) to achieve maximum scalability and cost efficiency.",
+      metrics: [
+        "Direct-to-Cloud",
+        "100% Serverless DB"
+      ]
+    },
+    learnings: {
+      learned: "Mastered the intricacies of S3/B2 multipart uploads, ETag validation, and handling unpredictable browser environments (offline, refresh, crash).",
+      tradeoffs: "Required users to manually re-select the file after a refresh instead of automatic recovery, due to strict browser security limitations on File objects.",
+      future: "Implement WebSockets for real-time progress sharing with the receiver before the upload completes."
+    },
+    techCategories: {
+      frontend: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+      backend: ["Node.js", "Express.js", "MongoDB", "Backblaze B2"],
+      ml: [],
+      tools: ["Zod", "S3 SDK", "Rate Limiting"]
+    }
+  },
+  {
     id: "smart-farming-india",
     title: "Smart Farming India",
     description:
