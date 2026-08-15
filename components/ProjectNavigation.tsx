@@ -32,8 +32,11 @@ export default function ProjectNavigation() {
       let currentSection = "top";
       for (const section of SECTIONS) {
         const el = document.getElementById(section.id);
-        if (el && el.offsetTop - 300 <= scrollY) {
-          currentSection = section.id;
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 300) {
+            currentSection = section.id;
+          }
         }
       }
       setActiveSection(currentSection);
@@ -59,8 +62,10 @@ export default function ProjectNavigation() {
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
+      const rect = el.getBoundingClientRect();
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
       window.scrollTo({
-        top: el.offsetTop - 100,
+        top: rect.top + scrollTop - 100,
         behavior: "smooth",
       });
     }

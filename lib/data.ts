@@ -15,7 +15,7 @@ export const projects: (Project & { isPlaceholder?: boolean })[] = [
       "Peer-to-peer equipment marketplace with rental & buying options",
       "GPS-based farm area calculator & community forum",
     ],
-    githubUrl: "https://github.com/princeasodariya13",
+    githubUrl: "https://github.com/princeasodariya13/Smart-Farming-India",
     liveUrl: "https://smart-farming-india.vercel.app",
     image: "/projects/smart-farming-india-v2.png",
     featured: true,
@@ -130,7 +130,7 @@ export const projects: (Project & { isPlaceholder?: boolean })[] = [
       "360° performance reviews & goal-setting cycles",
       "Role-based access control (Admin / Manager / Employee)",
     ],
-    githubUrl: "https://github.com/princeasodariya13",
+    githubUrl: "https://github.com/princeasodariya13/NexaHR-AI",
     liveUrl: "https://nexahr-ai.vercel.app/",
     image: "/projects/nexahr-ai-v2.png",
     featured: true,
@@ -243,7 +243,7 @@ export const projects: (Project & { isPlaceholder?: boolean })[] = [
       "Client portfolio across residential, commercial & industrial segments",
       "Contact form & inquiry system for new projects",
     ],
-    githubUrl: "https://github.com/princeasodariya13",
+    githubUrl: "https://github.com/princeasodariya13/Setu-Architect",
     liveUrl: "https://setu-architect.vercel.app/",
     image: "/projects/setu-architect-v2.png",
     purpose: "To establish a premium, high-trust digital presence for a legacy architectural firm. The goal was to translate their 35+ years of physical engineering excellence into a modern, highly performant web portfolio that captures high-value B2B and B2C leads.",
@@ -443,7 +443,7 @@ export const projects: (Project & { isPlaceholder?: boolean })[] = [
       "Fuel consumption logs & maintenance scheduling",
       "Analytics dashboard with PDF export for reports",
     ],
-    githubUrl: "https://github.com/princeasodariya13",
+    githubUrl: "https://github.com/princeasodariya13/TransitOps-Smart-Transport",
     liveUrl: "https://transit-ops-smart-transport.vercel.app/",
     image: "/projects/transit-ops-v2.png",
     purpose: "To bring absolute transparency and rigorous data control to complex logistics and fleet management. The platform was built to replace error-prone spreadsheet tracking with a real-time, robust database system that enforces strict role-based compliance.",
@@ -533,100 +533,100 @@ export const projects: (Project & { isPlaceholder?: boolean })[] = [
   },
   {
     id: "healthcare-hub",
-    title: "Healthcare Hub",
+    title: "Healthcare Hub (Medynest)",
     description:
-      "A robust PHP & MERN-based hospital management platform for end-to-end hospital operations — secure patient records, automated appointment scheduling, MySQL database management, and role-based access for admins, doctors, and patients.",
-    techStack: ["React", "Node.js", "Express.js", "MongoDB", "PHP", "MySQL", "Bootstrap"],
+      "A modern digital platform for a trusted healthcare provider established in 1985. Features dedicated patient and doctor dashboards with a live appointment booking system, showcasing medical excellence and treating over 25K+ patients.",
+    techStack: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "Bootstrap"],
     features: [
-      "Secure patient records & medical history management",
-      "Automated OPD appointment scheduling system",
-      "Role-based access for Admins, Doctors & Patients",
-      "Integrated billing system with pharmacy inventory",
+      "Dedicated Patient Dashboard with medical history tracking",
+      "Specialized Doctor Dashboard for schedule management",
+      "Live doctor booking and real-time appointment scheduling",
+      "Multi-branch support across 12 Clinic Locations",
     ],
-    githubUrl: "https://github.com/princeasodariya13",
-    liveUrl: undefined,
-    image: undefined,
-    purpose: "To digitize and secure critical hospital operations. This legacy system modernization project aimed to replace paper-based patient records and manual OPD queues with a fast, secure, and centralized SQL-based management system.",
+    githubUrl: "https://github.com/princeasodariya13/Medynest",
+    liveUrl: "https://medynest.freedev.app",
+    image: "/projects/healthcare-hub-v2.png",
+    purpose: "To provide a state-of-the-art digital presence for a healthcare center standing as a symbol of trust and innovation since 1985, delivering the highest standard of medical care that exceeds expectations.",
     workflow: [
-      "Patients log in to view their medical history and securely book OPD appointments.",
-      "Doctors access a specialized dashboard to view their daily schedule and update patient diagnostic records.",
-      "Administrators manage the overarching hospital inventory, billing systems, and staff access controls.",
-      "The PHP backend handles secure SQL transactions to ensure 100% data integrity for medical records."
+      "Patients log into their dedicated dashboard to search for doctors and securely book live appointments.",
+      "Doctors access their specialized dashboard to view daily schedules, patient details, and manage upcoming visits.",
+      "Administrators oversee the entire hospital operation, managing clinic locations and resolving emergency contacts.",
+      "The PHP/MySQL backend processes all live bookings in real-time to prevent any scheduling conflicts."
     ],
-    impact: "Drastically reduced patient wait times, eliminated lost medical records, and provided hospital administrators with a bird's-eye view of operational bottlenecks.",
+    impact: "Digitally transformed a legacy medical institution, improving patient access to emergency services and connecting thousands to specialized care across multiple clinic locations.",
     architecture: [
       {
-        title: "Hybrid Stack",
-        description: "Combined modern React components for the patient portal with a robust legacy PHP backend for administrative processing.",
+        title: "Frontend Presentation",
+        description: "Responsive HTML/CSS UI designed to build trust with clean, accessible medical branding and smooth navigation.",
       },
       {
         title: "Data Layer",
-        description: "Dual database strategy utilizing MySQL for strict relational billing data and MongoDB for flexible patient history logs.",
+        description: "Relational MySQL database approach managing large volumes of patient interactions and staff directories across 12 locations.",
       },
       {
         title: "Security",
-        description: "Strict session management and data sanitization protocols to protect sensitive medical records.",
+        description: "Strict session management to protect sensitive login access for patients and doctors.",
       }
     ],
     deepDive: {
-      title: "Secure Medical Record Management",
-      architecture: "PHP/MySQL Transactional Core",
-      methodology: "ACID-compliant SQL transactions ensuring that billing and pharmacy deductions occur flawlessly.",
-      dataset: "Simulated hospital environment with doctors, patients, appointments, and inventory.",
+      title: "Live Appointment Engine",
+      architecture: "Real-Time Scheduling Database",
+      methodology: "Transactional SQL architecture ensuring that live doctor bookings are processed instantly without double-booking.",
+      dataset: "Information spanning 150+ specialists, 12 clinics, and thousands of appointment slots.",
       pipeline: [
-        "Sanitized form inputs",
-        "Multi-table SQL joins for comprehensive views",
-        "Role-verified data mutations"
+        "Patient slot request via Patient Dashboard",
+        "Backend availability verification",
+        "Instant booking confirmation & schedule update"
       ],
       metrics: [
-        { label: "DATA INTEGRITY", value: "100%" },
-        { label: "CONCURRENT USERS", value: "500+" }
+        { label: "CLINIC LOCATIONS", value: "12" },
+        { label: "MEDICAL SPECIALISTS", value: "150+" }
       ]
     },
     challenges: [
       {
-        problem: "Legacy Code Integration",
-        solution: "Successfully bridged a traditional PHP monolithic architecture with modern React REST APIs."
+        problem: "Trust & Credibility UI Design",
+        solution: "Implemented a clean, professional aesthetic featuring critical trust metrics (25K+ patients, 98% satisfaction) prominently on the hero section."
       },
       {
-        problem: "Complex Scheduling Logic",
-        solution: "Engineered an algorithm to prevent double-booking of doctors while factoring in variable appointment durations."
+        problem: "Multi-Location Management",
+        solution: "Engineered a scalable data structure to manage schedules and services uniquely across 12 different clinic locations."
       }
     ],
     coreFeatures: [
       {
-        title: "Secure Patient Portal",
-        description: "Encrypted interface for patients to view medical histories, diagnostic reports, and upcoming appointments."
+        title: "Live Doctor Booking",
+        description: "A seamless interface allowing patients to browse available slots and book appointments in real-time."
       },
       {
-        title: "Automated OPD Queue",
-        description: "Smart scheduling algorithm that assigns sequential queue tokens while preventing doctor double-booking."
+        title: "Patient Dashboard",
+        description: "A personalized portal where patients can securely view their upcoming appointments and medical history."
       },
       {
-        title: "Doctor's Diagnostic Dashboard",
-        description: "Dedicated portal for physicians to review patient charts and issue secure digital prescriptions."
+        title: "Doctor Dashboard",
+        description: "A centralized command center for physicians to manage their live schedules and update patient records."
       },
       {
-        title: "Pharmacy & Billing Engine",
-        description: "Integrated SQL inventory system that automatically tracks stock and deducts items upon prescription fulfillment."
+        title: "Secure Access Portal",
+        description: "Role-based authentication ensuring doctors, patients, and admins only access their authorized data."
       }
     ],
     results: {
-      headline: "A fully digitized hospital ecosystem that eliminates paper trails and prevents medical errors.",
-      description: "Brought total transparency to hospital operations, from the front desk to the pharmacy.",
+      headline: "A digital reflection of 35+ years of medical excellence.",
+      description: "Successfully communicated the institution's legacy of trust while providing modern tools for patient engagement.",
       metrics: [
-        "0 Lost Medical Records",
-        "50% Faster Check-ins"
+        "25K+ Patients Treated",
+        "98% Satisfaction Rate"
       ]
     },
     learnings: {
-      learned: "Gained invaluable experience in database normalization and integrating disparate technology stacks (PHP + React).",
-      tradeoffs: "Maintained a server-rendered PHP approach for critical admin panels, sacrificing SPA speed for maximum security and stability.",
-      future: "Migrate the entire backend to Node.js/NestJS for a unified JavaScript codebase."
+      learned: "Gained experience in designing user interfaces for the healthcare sector, where building immediate trust and clarity is paramount.",
+      tradeoffs: "Prioritized straightforward, accessible design over complex animations to ensure usability for patients of all ages.",
+      future: "Implement a fully integrated telemedicine video consultation feature."
     },
     techCategories: {
-      frontend: ["React", "Bootstrap"],
-      backend: ["Node.js", "PHP", "MySQL", "MongoDB"],
+      frontend: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+      backend: ["PHP", "MySQL"],
       ml: [],
       tools: ["Git"]
     }
