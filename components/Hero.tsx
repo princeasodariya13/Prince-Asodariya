@@ -48,7 +48,7 @@ export default function Hero() {
       {/* Soft Glow behind text to ensure legibility against the grid */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] h-[600px] bg-bg-primary/90 blur-[100px] rounded-full pointer-events-none z-[5]" />
 
-      <div className="w-full max-w-[1240px] mx-auto px-[clamp(1.25rem,5vw,4rem)] relative z-10 grid lg:grid-cols-[1.3fr_0.7fr] gap-12 lg:gap-4 items-center">
+      <div className="w-full max-w-[1240px] mx-auto px-[clamp(1.25rem,5vw,4rem)] relative z-10 grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-8 items-center">
         {/* Left Column - Text Content */}
         <div className="pr-0 lg:pr-8">
           <Reveal>
@@ -60,9 +60,9 @@ export default function Hero() {
           <Reveal delay={80}>
             <h1
               ref={containerRef}
-              className="font-display text-[clamp(2.75rem,5.5vw,5.5rem)] font-extrabold leading-[1.05] tracking-tight text-slate-900"
+              className="font-display text-[clamp(2.5rem,4.5vw,4.75rem)] font-extrabold leading-[1.05] tracking-tight text-slate-900"
             >
-              <div className="block">
+              <div className="block md:whitespace-nowrap">
                 <VariableProximity
                   label="MERN / Full-Stack"
                   className="variable-proximity-demo inline"
@@ -73,7 +73,7 @@ export default function Hero() {
                   falloff="linear"
                 />
               </div>
-              <div className="flex items-baseline mt-2">
+              <div className="flex items-baseline mt-2 md:whitespace-nowrap">
                 <VariableProximity
                   label="Developer"
                   className="variable-proximity-demo inline"
@@ -161,8 +161,8 @@ export default function Hero() {
 
         {/* Right Column - Profile Image */}
         <Reveal delay={400}>
-          <div className="hidden lg:flex justify-start lg:-translate-x-8 xl:-translate-x-12 items-center relative w-full">
-            <div className="relative w-[280px] h-[280px] xl:w-[320px] xl:h-[320px]">
+          <div className="hidden lg:flex justify-center lg:justify-start lg:-translate-x-4 xl:-translate-x-8 items-center relative w-full">
+            <div className="relative w-[280px] h-[280px] xl:w-[320px] xl:h-[320px] shrink-0">
               {/* Soft White Outer Glow */}
               <div className="absolute inset-[-40px] bg-white/40 rounded-full blur-[60px] pointer-events-none" />
               {/* Subtle Color Pulse */}
