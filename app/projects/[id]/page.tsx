@@ -23,21 +23,33 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
 
   return (
     <main className="relative min-h-screen bg-[#fcfcfc] selection:bg-accent selection:text-white" id="top">
-      {/* Background Image with CSS Mask */}
+      {/* Hero Background — Project Screenshot Showcase */}
       {project.image && (
-        <div className="absolute inset-x-0 top-0 h-[80vh] w-full z-0 pointer-events-none select-none">
-          <div className="absolute inset-0 z-10 bg-[#fcfcfc]/40 backdrop-blur-[2px]" />
+        <div className="absolute inset-x-0 top-0 h-[88vh] w-full z-0 pointer-events-none select-none overflow-hidden">
+          {/* Full bleed screenshot — visible and clear */}
           <Image
             src={project.image}
-            alt="Project Showcase"
+            alt={`${project.title} — Project Screenshot`}
             fill
-            className="object-cover object-top opacity-30 mix-blend-multiply"
+            className="object-cover object-top"
             style={{
-              maskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)'
+              opacity: 0.92,
+              maskImage: 'linear-gradient(to bottom, black 0%, black 40%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 40%, transparent 100%)',
             }}
             priority
           />
+          {/* Left-side reading gradient — keeps text sharp */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(to right, rgba(252,252,252,0.97) 0%, rgba(252,252,252,0.92) 32%, rgba(252,252,252,0.60) 58%, rgba(252,252,252,0.0) 100%)',
+            }}
+          />
+          {/* Bottom fade to page */}
+          <div className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-[#fcfcfc] via-[#fcfcfc]/80 to-transparent" />
+          {/* Subtle top vignette */}
+          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#fcfcfc]/60 to-transparent" />
         </div>
       )}
 

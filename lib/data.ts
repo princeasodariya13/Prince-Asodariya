@@ -2,6 +2,143 @@ import { EducationEntry, ExperienceEntry, Project, SkillCategory } from "./types
 
 export const projects: (Project & { isPlaceholder?: boolean })[] = [
   {
+    id: "provia",
+    title: "Provia",
+    description:
+      "An AI-powered portfolio & resume generation platform for modern professionals. Features a multi-theme Portfolio Studio, a context-aware 3D AI assistant, GitHub sync, PDF resume intelligence pipeline, live publishing, and real-time engagement analytics — all built on Next.js 16 with a serverless PostgreSQL backend.",
+    techStack: ["Next.js", "TypeScript", "AI/LLM", "PostgreSQL", "Prisma", "Cloudinary"],
+    features: [
+      "AI-powered resume PDF parsing with automatic profile data hydration",
+      "Multi-theme Portfolio Studio: Immersive 3D, Editorial V1, Premium Dark Mode",
+      "Context-aware floating 3D AI chatbot powered by Google Gemini",
+      "GitHub sync — pull repositories, commits & showcase top projects natively",
+      "Live publishing with real-time analytics & engagement tracking",
+      "GPU-accelerated animations, glassmorphism UI, Framer Motion transitions",
+    ],
+    githubUrl: "https://github.com/princeasodariya13/Provia",
+    liveUrl: "https://provia-developer.vercel.app",
+    image: "/projects/provia-real.png",
+    featured: true,
+    purpose:
+      "To solve the massive gap between developer talent and professional brand presentation. Developers and designers often spend weeks writing custom portfolio code or settle for generic website builders. Provia eliminates this by automatically ingesting professional data (resumes, GitHub repos) and instantly generating stunning, 'million-dollar' 3D and editorial portfolio designs — tracked with live analytics.",
+    workflow: [
+      "Users sign up and upload their existing resume PDF to the Resume Intelligence Pipeline.",
+      "The AI extraction engine parses the document and auto-populates their skills, experience, and project metadata directly into the database.",
+      "Users then select a bespoke portfolio theme (Immersive 3D, Editorial, or Premium Dark) from the Portfolio Studio.",
+      "With one click, the portfolio is published to a live public URL. The platform then tracks all visitor engagement and surface analytics in the dashboard.",
+    ],
+    impact:
+      "Provia collapses the time required to build a world-class developer portfolio from weeks to minutes. Its strict UX precision — GPU-accelerated animations, glassmorphism UI components, and lag-free floating widgets — delivers an experience that wows recruiters and clients at first glance.",
+    architecture: [
+      {
+        title: "Frontend Engine",
+        description:
+          "Next.js 16 App Router with Server Components for optimal SEO and lightning-fast initial page loads. Framer Motion and Lottie React power GPU-accelerated, 60fps animations throughout the platform.",
+      },
+      {
+        title: "Serverless Backend",
+        description:
+          "Next.js Serverless Route Handlers (`app/api/v1/*`) manage all business logic, connected to a PostgreSQL database via Prisma ORM with robust connection pooling for high-concurrency serverless environments.",
+      },
+      {
+        title: "Authentication Architecture",
+        description:
+          "Custom JWT & Cookie-based session management (Auralis pattern) ensuring secure, isolated multi-user sessions — supporting concurrent data privacy across dashboards.",
+      },
+      {
+        title: "Modular Template Engine",
+        description:
+          "A highly decoupled architecture that hot-swaps entire component trees to render completely different UI themes (2D Editorial → GPU-accelerated 3D) without requiring full page reloads.",
+      },
+    ],
+    deepDive: {
+      title: "Context-Aware AI Chatbot",
+      architecture: "Google Gemini API with Custom Conversation History Sanitization",
+      methodology:
+        "Engineered strict chat history validation algorithms (ensuring perfect user/model role alternation) to prevent silent Gemini SDK crashes. Advanced DOM event interception (stopPropagation) and CSS overscroll-none directives completely isolate the widget's scroll and resize behavior from the main application.",
+      dataset:
+        "The AI is strictly trained on Provia's internal routing, platform features, and navigation paths — acting as a path-aware platform guide rather than a generic chatbot.",
+      pipeline: [
+        "User message received by the floating 3D Lottie widget",
+        "Conversation history sanitized & validated before every API call",
+        "Gemini response rendered with Markdown support inside the isolated scroll container",
+      ],
+      metrics: [
+        { label: "ANIMATION FPS", value: "60fps" },
+        { label: "PORTFOLIO THEMES", value: "3 Bespoke" },
+      ],
+    },
+    challenges: [
+      {
+        problem: "AI SDK crashing due to invalid chat history payloads",
+        solution:
+          "Built a defensive conversation sanitizer that validates perfect user/model role alternation before every Gemini API call, preventing silent backend crashes in production.",
+      },
+      {
+        problem: "Scroll chaining from the floating chatbot widget bleeding into the main page",
+        solution:
+          "Aggressively overrode browser defaults using tailored CSS (overscroll-none) and React event interception (stopPropagation) to achieve complete scroll isolation.",
+      },
+      {
+        problem: "Database connection pool exhaustion in a serverless environment",
+        solution:
+          "Implemented strict Prisma connection pooling and robust timeout handling to prevent 'Server has closed the connection' errors under high concurrency.",
+      },
+    ],
+    coreFeatures: [
+      {
+        title: "Resume Intelligence Pipeline",
+        description:
+          "An asynchronous pipeline that ingests PDF resumes, extracts unstructured text using AI, and maps it into structured JSON to automatically hydrate the user's PostgreSQL profile.",
+      },
+      {
+        title: "Premium Portfolio Studio",
+        description:
+          "Multi-theme engine letting users toggle between Immersive 3D (geometric hero), Editorial V1 (typography-focused), and Premium Dark Mode templates with live preview and one-click publishing.",
+      },
+      {
+        title: "Provia AI Assistant",
+        description:
+          "A beautifully animated floating 3D chatbot (Lottie React) powered by Google Gemini, providing path-aware platform guidance, Markdown-formatted responses, and custom scroll-isolated resizing.",
+      },
+      {
+        title: "GitHub Integration",
+        description:
+          "Native GitHub sync to pull a user's repositories, commit histories, and technical stack directly into the selected portfolio template for automatic project showcase.",
+      },
+      {
+        title: "Live Publishing & Analytics",
+        description:
+          "Draft edits in real-time and push updates to a live public URL instantly. A detailed analytics dashboard tracks lifetime profile traffic, portfolio views, and visitor engagement metrics.",
+      },
+      {
+        title: "Cloudinary Media Pipeline",
+        description:
+          "Integrated Cloudinary for an optimized asset pipeline handling avatar uploads, resume parsing assets, and CDN delivery with automatic format optimization.",
+      },
+    ],
+    results: {
+      headline: "Portfolio creation compressed from weeks to minutes.",
+      description:
+        "Provia automates the entire personal branding lifecycle — from data ingestion to live publication — delivering a premium, recruiter-grade portfolio with zero design work required from the user.",
+      metrics: ["Minutes to Live Portfolio", "3 GPU-Accelerated Themes"],
+    },
+    learnings: {
+      learned:
+        "Integrating generative AI into production requires highly defensive programming. Sanitizing conversational history payloads and managing Prisma connection pooling in serverless environments were the two most critical architectural lessons from this build.",
+      tradeoffs:
+        "Chose Vercel's serverless Edge deployment for global low-latency, which required rethinking database connection strategies to prevent pool exhaustion under concurrent users.",
+      future:
+        "Add a custom domain connection feature so users can point their own domain to their published Provia portfolio, and expand the template library with niche-specific designs for designers and data scientists.",
+    },
+    techCategories: {
+      frontend: ["Next.js 16", "TypeScript", "Tailwind CSS", "Framer Motion", "Lottie React", "Radix UI"],
+      backend: ["Next.js Serverless Handlers", "Prisma ORM", "PostgreSQL", "JWT Auth"],
+      ml: ["Google Gemini API"],
+      tools: ["Cloudinary", "Vercel", "GitHub API"],
+    },
+  },
+  {
     id: "filedrop",
     title: "FileDrop",
     description: "A guest-first temporary file-sharing platform designed for large-file transfers. Features a highly resilient, cross-refresh resumable multipart upload engine, storage quotas, and atomic download limits.",
