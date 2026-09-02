@@ -43,8 +43,8 @@ const SECTIONS = [
 ];
 
 // ─── FloatingDock magnification constants ──────────────────────────────────
-const DOCK_MAX_SCALE = 1.6;  // peak scale when cursor is directly over icon
-const DOCK_RADIUS    = 110;  // px — how far the magnification spreads to neighbours
+const DOCK_MAX_SCALE = 1.35; // peak scale when cursor is directly over icon
+const DOCK_RADIUS    = 100;  // px — how far the magnification spreads to neighbours
 
 function easeOut(t: number) {
   return 1 - Math.pow(1 - t, 2);
