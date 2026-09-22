@@ -88,7 +88,7 @@ export default function LogoLoop({
               ) : logo.src ? (
                 <img
                   src={logo.src}
-                  alt={logo.title || "Logo"}
+                  alt={logo.title ? `${logo.title} technology icon` : "Technology icon"}
                   style={{ height: `${logoHeight}px`, width: "auto" }}
                   className="object-contain"
                 />

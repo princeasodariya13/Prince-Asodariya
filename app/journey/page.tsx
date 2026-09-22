@@ -1,9 +1,41 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import CursorGrid from "@/components/CursorGrid";
 import Link from "next/link";
 import { FaRocket, FaLaptopCode, FaDatabase, FaCode } from "react-icons/fa";
+
+export const metadata: Metadata = {
+  title: "Career & Technology Journey | Prince Asodariya",
+  description:
+    "Timeline of Prince Asodariya's developer journey from 2023 to 2026, featuring milestones in MERN stack, React, Node.js, and full-stack web development.",
+  alternates: {
+    canonical: "https://prince-asodariya.vercel.app/journey",
+  },
+  openGraph: {
+    title: "Career & Technology Journey | Prince Asodariya",
+    description:
+      "Timeline of Prince Asodariya's developer journey from 2023 to 2026, featuring milestones in MERN stack, React, Node.js, and full-stack web development.",
+    url: "https://prince-asodariya.vercel.app/journey",
+    siteName: "Prince Asodariya Portfolio",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/image-Prince3.png",
+        alt: "Prince Asodariya — Development Journey",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Career & Technology Journey | Prince Asodariya",
+    description:
+      "Timeline of Prince Asodariya's developer journey from 2023 to 2026, featuring milestones in MERN stack, React, Node.js, and full-stack web development.",
+    images: ["/image-Prince3.png"],
+  },
+};
 
 const journeyData = [
   {

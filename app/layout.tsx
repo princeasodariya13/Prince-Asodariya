@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { profile } from "@/lib/data";
 import IndexRail from "@/components/IndexRail";
 
 const display = Space_Grotesk({
@@ -25,40 +24,81 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
-const siteUrl = "https://prince-asodariya.vercel.app"; // TODO: update after deployment
+import LenisProvider from "@/components/LenisProvider";
+import IntroAnimation from "@/components/IntroAnimation";
+
+const siteUrl = "https://prince-asodariya.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: `${profile.name} — ${profile.role}`,
-  description: profile.tagline,
+  title: {
+    default: "Prince Asodariya — MERN Stack & Full-Stack Developer",
+    template: "%s | Prince Asodariya",
+  },
+  description:
+    "Prince Asodariya is a MERN Stack and Full-Stack Developer from Gujarat, India, specializing in React, Node.js, Express.js, MongoDB, Next.js, TypeScript, and scalable web applications.",
   keywords: [
     "Prince Asodariya",
+    "Prince Asodariya Developer",
+    "Prince Asodariya Portfolio",
     "MERN Stack Developer",
-    "Full Stack Developer",
+    "MERN Developer",
+    "Full-Stack Developer",
+    "Full Stack Web Developer",
     "React Developer",
+    "Node.js Developer",
     "Next.js Developer",
-    "Node.js",
-    "MongoDB",
-    "Portfolio",
-    "Gujarat",
-    "Indus University",
+    "JavaScript Developer",
+    "TypeScript Developer",
+    "MongoDB Developer",
+    "Web Developer",
+    "Software Developer",
+    "Full Stack Developer Gujarat",
+    "MERN Stack Developer Gujarat",
+    "Developer Ahmedabad",
+    "Web Developer Ahmedabad",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: `${profile.name} — ${profile.role}`,
-    description: profile.tagline,
+    title: "Prince Asodariya — MERN Stack & Full-Stack Developer",
+    description:
+      "Prince Asodariya is a MERN Stack and Full-Stack Developer from Gujarat, India, specializing in React, Node.js, Express.js, MongoDB, Next.js, TypeScript, and scalable web applications.",
     url: siteUrl,
-    siteName: profile.name,
+    siteName: "Prince Asodariya Portfolio",
+    locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/image-Prince3.png",
+        alt: "Prince Asodariya — MERN Stack & Full-Stack Developer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} — ${profile.role}`,
-    description: profile.tagline,
+    title: "Prince Asodariya — MERN Stack & Full-Stack Developer",
+    description:
+      "Prince Asodariya is a MERN Stack and Full-Stack Developer from Gujarat, India, specializing in React, Node.js, Express.js, MongoDB, Next.js, TypeScript, and scalable web applications.",
+    images: ["/image-Prince3.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
   },
 };
-
-import LenisProvider from "@/components/LenisProvider";
-import IntroAnimation from "@/components/IntroAnimation";
 
 export default function RootLayout({
   children,

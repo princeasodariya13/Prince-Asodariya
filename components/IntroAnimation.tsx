@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react";
 
 export default function IntroAnimation() {
   const [phase, setPhase] = useState<"hidden" | "fade-in" | "fly-up" | "done">("hidden");
-  const nameRef = useRef<HTMLHeadingElement>(null);
+  const nameRef = useRef<HTMLDivElement>(null);
   const [transformStyle, setTransformStyle] = useState("");
 
   useEffect(() => {
@@ -76,7 +76,7 @@ export default function IntroAnimation() {
         </p>
         
         {/* Main Name that flies to the header */}
-        <h1 
+        <div 
           ref={nameRef}
           className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 origin-top-left whitespace-nowrap leading-none"
           style={{
@@ -88,7 +88,7 @@ export default function IntroAnimation() {
           }}
         >
           Prince Asodariya<span className="text-accent">.</span>
-        </h1>
+        </div>
         
         {/* Subtitle */}
         <p className="font-mono text-sm text-slate-500 mt-4 transition-all duration-700 ease-out delay-100"

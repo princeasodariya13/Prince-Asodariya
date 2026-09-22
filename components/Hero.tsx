@@ -172,7 +172,7 @@ export default function Hero() {
               <div className="relative w-full h-full rounded-full overflow-hidden border-[8px] border-white shadow-[0_20px_60px_rgba(0,0,0,0.08)] bg-white">
                 <img 
                   src="/image-Prince3.png" 
-                  alt={profile.name} 
+                  alt={`${profile.name} — MERN Stack and Full-Stack Developer`} 
                   className="w-full h-full object-cover object-top"
                   loading="eager"
                 />

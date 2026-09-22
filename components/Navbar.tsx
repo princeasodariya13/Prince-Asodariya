@@ -58,7 +58,7 @@ export default function Navbar() {
           <div className={`transition-opacity duration-300 ${introFinished ? "opacity-100" : "opacity-0"}`}>
             <img 
               src="/logo.png" 
-              alt="Logo" 
+              alt="Prince Asodariya Logo" 
               className="w-9 h-9 rounded-full object-cover transition-transform group-hover:scale-105" 
             />
           </div>

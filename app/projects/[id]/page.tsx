@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { projects } from "@/lib/data";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -6,6 +7,61 @@ import ShareButton from "@/components/ShareButton";
 import ProjectNavigation from "@/components/ProjectNavigation";
 import Reveal from "@/components/Reveal";
 import AnimatedMetric from "@/components/AnimatedMetric";
+
+export async function generateMetadata(
+  props: { params: Promise<{ id: string }> }
+): Promise<Metadata> {
+  const params = await props.params;
+  const project = projects.find((p) => p.id === params.id);
+
+  if (!project) {
+    return {
+      title: "Project Not Found | Prince Asodariya",
+      description: "The requested project case study could not be found.",
+    };
+  }
+
+  const siteUrl = "https://prince-asodariya.vercel.app";
+  const projectUrl = `${siteUrl}/projects/${project.id}`;
+  const title = `${project.title} — ${project.techStack.slice(0, 3).join(", ")} Case Study | Prince Asodariya`;
+  
+  const cleanDescription = project.description.length > 157
+    ? `${project.description.slice(0, 154)}...`
+    : project.description;
+
+  const imagePath = project.image || "/image-Prince3.png";
+  const imageUrl = imagePath.startsWith("http")
+    ? imagePath
+    : `${siteUrl}${imagePath}`;
+
+  return {
+    title,
+    description: cleanDescription,
+    alternates: {
+      canonical: projectUrl,
+    },
+    openGraph: {
+      title: `${project.title} — Case Study by Prince Asodariya`,
+      description: cleanDescription,
+      url: projectUrl,
+      siteName: "Prince Asodariya Portfolio",
+      locale: "en_US",
+      type: "article",
+      images: [
+        {
+          url: imageUrl,
+          alt: `${project.title} — Project Showcase`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} — Case Study by Prince Asodariya`,
+      description: cleanDescription,
+      images: [imageUrl],
+    },
+  };
+}
 
 export function generateStaticParams() {
   return projects.map((project) => ({
@@ -29,7 +85,7 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
           {/* Full bleed screenshot — visible and clear */}
           <Image
             src={project.image}
-            alt={`${project.title} — Project Screenshot`}
+            alt={`${project.title} — Application interface showcase`}
             fill
             className="object-cover object-top"
             style={{
