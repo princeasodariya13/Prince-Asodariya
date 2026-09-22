@@ -87,6 +87,7 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
             src={project.image}
             alt={`${project.title} — Application interface showcase`}
             fill
+            sizes="(max-width: 1200px) 100vw, 1200px"
             className="object-cover object-top"
             style={{
               opacity: 0.92,
@@ -118,7 +119,7 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
             href="/#projects" 
             className="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur-xl border border-[#e5e7eb] px-5 py-2.5 font-mono text-[0.75rem] font-bold tracking-wide text-[#374151] hover:bg-white hover:text-black hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 shadow-sm"
           >
-            <span aria-hidden="true" className="text-lg leading-none mt-[-2px]">←</span> Back to Projects
+            <span aria-hidden="true" className="text-lg leading-none mt-[-2px]">←</span> Return to All Projects
           </Link>
           <ShareButton />
         </div>
@@ -421,6 +422,15 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
           )}
 
         </article>
+
+        <nav aria-label="Case Study Footer Navigation" className="mt-16 pt-8 border-t border-[#f3f4f6] flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs font-bold text-[#4b5563]">
+          <Link href="/#projects" className="hover:text-black transition-colors">
+            ← Return to All Case Studies
+          </Link>
+          <Link href="/contact" className="text-[#4f46e5] hover:underline">
+            Discuss a Similar Project with Prince Asodariya →
+          </Link>
+        </nav>
       </div>
 
       {/* Floating Navigation Menu */}

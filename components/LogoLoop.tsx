@@ -91,6 +91,8 @@ export default function LogoLoop({
                   alt={logo.title ? `${logo.title} technology icon` : "Technology icon"}
                   style={{ height: `${logoHeight}px`, width: "auto" }}
                   className="object-contain"
+                  loading="lazy"
+                  decoding="async"
                 />
               ) : null}
               {logo.title && <span className="mt-2 font-mono text-[0.65rem] font-semibold tracking-wider uppercase opacity-0 transition-opacity duration-300 group-hover:opacity-100">{logo.title}</span>}

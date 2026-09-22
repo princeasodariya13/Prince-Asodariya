@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from 'react';
+import Image from "next/image";
 import { profile } from "@/lib/data";
 import Button from "./Button";
 import Reveal from "./Reveal";
@@ -95,8 +96,8 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={200}>
-            <p className="mt-4 max-w-xl text-[0.85rem] md:text-[0.95rem] font-medium text-slate-400">
-              Based in {profile.location}.
+            <p className="mt-4 max-w-xl text-[0.85rem] md:text-[0.95rem] font-medium text-slate-500">
+              Based in {profile.location} (near Ahmedabad) · MERN Stack Developer &amp; Full-Stack Web Developer Portfolio
             </p>
           </Reveal>
 
@@ -114,17 +115,17 @@ export default function Hero() {
           >
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <a 
-                href="#contact" 
+                href="/contact" 
                 className="inline-flex items-center justify-center rounded-[20px] bg-black px-6 py-3.5 text-sm font-bold !text-white transition-all hover:bg-slate-800 hover:scale-[1.02] shadow-[0_4px_14px_rgba(0,0,0,0.1)]"
                 style={{ color: '#ffffff' }}
               >
-                Hire Me as Developer <span className="ml-2 !text-white" style={{ color: '#ffffff' }}>↗</span>
+                Contact Me / Hire Me <span className="ml-2 !text-white" style={{ color: '#ffffff' }}>↗</span>
               </a>
               <a 
-                href="#projects" 
+                href="/#projects" 
                 className="inline-flex items-center justify-center rounded-[20px] bg-white border border-slate-200 px-6 py-3.5 text-sm font-bold text-slate-800 transition-all hover:bg-slate-50 hover:scale-[1.02] shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
               >
-                View My Projects
+                Explore Project Case Studies
               </a>
             </div>
           </AnimatedContent>
@@ -170,11 +171,14 @@ export default function Hero() {
               
               {/* Image Container with Thick White Border */}
               <div className="relative w-full h-full rounded-full overflow-hidden border-[8px] border-white shadow-[0_20px_60px_rgba(0,0,0,0.08)] bg-white">
-                <img 
+                <Image 
                   src="/image-Prince3.png" 
                   alt={`${profile.name} — MERN Stack and Full-Stack Developer`} 
+                  width={320}
+                  height={320}
+                  priority
+                  decoding="async"
                   className="w-full h-full object-cover object-top"
-                  loading="eager"
                 />
               </div>
             </div>

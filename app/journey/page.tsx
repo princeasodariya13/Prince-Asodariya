@@ -40,19 +40,19 @@ export const metadata: Metadata = {
 const journeyData = [
   {
     year: "2026",
-    title: "MERN Stack Developer",
+    title: "MERN Stack & Full-Stack Developer",
     subtitle: "Full-Stack Specialization",
-    description: "Completed MERN Stack development in June 2026. Built full-stack applications using MongoDB, Express.js, React, and Node.js. Focused on RESTful APIs, authentication systems, responsive UI, and scalable web architecture.",
+    description: "Completed specialized MERN Stack development in June 2026. Built production-ready web applications using MongoDB, Express.js, React, Node.js, Next.js, and TypeScript. Focused on RESTful APIs, authentication systems, responsive UI, and scalable web architecture as a developer in Gujarat.",
     icon: FaRocket,
-    skills: ["MongoDB", "Express.js", "React", "Node.js", "REST APIs"]
+    skills: ["MongoDB", "Express.js", "React", "Node.js", "Next.js", "TypeScript", "REST APIs"]
   },
   {
     year: "2025",
-    title: "Advanced Development",
+    title: "Advanced Software & Web Development",
     subtitle: "Technology Expansion",
-    description: "Started MERN Stack development along with .NET framework and Android development. Strengthened JavaScript concepts including ES6+, asynchronous programming, API integration, and modern frontend development practices.",
+    description: "Expanded developer capabilities with modern JavaScript (ES6+), TypeScript, .NET framework, and mobile app development. Strengthened core software engineering practices, asynchronous logic, API integration, and component design.",
     icon: FaLaptopCode,
-    skills: [".NET", "Android", "JavaScript (ES6+)", "APIs"]
+    skills: ["JavaScript (ES6+)", "TypeScript", ".NET", "Android", "APIs"]
   },
   {
     year: "2024",
@@ -100,63 +100,67 @@ export default function JourneyPage() {
           <Reveal>
             <div className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-6">
               <div>
-                <Link href="/#education" className="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-accent transition-colors mb-6 bg-white px-4 py-2 rounded-full shadow-sm border border-slate-100">
-                  <span>←</span> Back to Home
+                <Link href="/" className="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-accent transition-colors mb-6 bg-white px-4 py-2 rounded-full shadow-sm border border-slate-100">
+                  <span>←</span> Return to Main Portfolio
                 </Link>
                 <h1 className="font-display text-[clamp(2rem,4vw,3.5rem)] font-extrabold tracking-tight text-slate-900 leading-none">
                   My Journey<span className="text-accent">.</span>
                 </h1>
                 <p className="mt-3 text-[0.95rem] text-slate-600 font-medium max-w-xl">
-                  A timeline of my professional growth, academic background, and the technologies I've mastered along the way.
+                  A timeline of Prince Asodariya&apos;s development journey, tracking technical growth as a MERN Stack Developer and Full-Stack Developer across React, Node.js, Next.js, TypeScript, and MongoDB engineering.
                 </p>
               </div>
               
               <Link 
-                href="/#contact" 
+                href="/contact" 
+                aria-label="Contact Prince Asodariya to work together"
                 className="shrink-0 group inline-flex items-center justify-center gap-2 rounded-full bg-black px-6 py-3.5 text-sm font-bold !text-white transition-all hover:bg-slate-800 hover:scale-[1.02] shadow-[0_4px_14px_rgba(0,0,0,0.1)]"
                 style={{ color: '#ffffff' }}
               >
-                Let's Work Together <span className="transition-transform group-hover:translate-x-1 !text-white" style={{ color: '#ffffff' }}>→</span>
+                Contact Me / Let's Work Together <span className="transition-transform group-hover:translate-x-1 !text-white" style={{ color: '#ffffff' }}>→</span>
               </Link>
             </div>
           </Reveal>
 
           <div className="relative md:ml-[140px] space-y-12 mt-12 md:mt-24">
             {/* Continuous Gradient Line */}
-            <div className="absolute left-[22px] top-6 bottom-6 w-[4px] bg-gradient-to-b from-accent via-purple-500/50 to-transparent rounded-full z-0" />
-            
+            <div className="absolute top-4 bottom-4 left-[23px] w-[3px] bg-gradient-to-b from-accent via-blue-500 to-emerald-500 rounded-full opacity-80" />
+
             {journeyData.map((item, index) => (
-              <Reveal key={index} delay={index * 100}>
-                <div className="relative flex items-start group">
+              <Reveal key={item.year} delay={index * 100}>
+                <div className="relative flex flex-col md:flex-row gap-6 md:gap-10 group">
                   
-                  {/* Timeline Dot / Icon */}
-                  <div className="flex items-center justify-center w-[48px] h-[48px] bg-white border-[3px] border-slate-200 group-hover:border-accent group-hover:bg-accent group-hover:text-white text-slate-400 transition-all duration-500 rounded-full shadow-[0_0_0_8px_#f8fafc] z-10 shrink-0">
-                    <item.icon className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 group-hover:scale-110" />
-                  </div>
-                  
-                  {/* Desktop Year */}
-                  <div className="hidden md:block absolute -left-[140px] w-[110px] text-right pt-2.5 z-10">
-                    <span className="font-mono text-xl font-black text-slate-300 group-hover:text-accent transition-colors duration-500">
+                  {/* Left Date / Year Column */}
+                  <div className="md:w-[120px] md:text-right shrink-0 flex md:block items-center gap-3">
+                    <span className="font-display text-2xl md:text-3xl font-black text-slate-900 group-hover:text-accent transition-colors">
                       {item.year}
+                    </span>
+                    <span className="md:block font-mono text-[0.65rem] font-bold text-slate-400 uppercase tracking-wider">
+                      {item.subtitle}
                     </span>
                   </div>
 
-                  {/* Content Container */}
-                  <div className="flex-1 ml-6 md:ml-10 z-10">
-                    {/* Mobile Year */}
-                    <div className="md:hidden font-mono text-lg font-black text-accent mb-2 pt-2">
-                      {item.year}
-                    </div>
+                  {/* Icon Node on Timeline Line */}
+                  <div className="relative z-10 hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-white border-2 border-slate-200 text-slate-700 shadow-md group-hover:border-accent group-hover:text-accent group-hover:scale-110 transition-all duration-300">
+                    <item.icon className="w-5 h-5" />
+                  </div>
 
-                    {/* Content Card */}
-                    <div className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-1">
-                      <div className="uppercase text-[0.6rem] font-black tracking-widest text-accent mb-2">
-                        {item.subtitle}
+                  {/* Content Card */}
+                  <div className="flex-1 bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm group-hover:shadow-md group-hover:border-accent/30 transition-all duration-300">
+                    <div className="flex flex-col gap-4">
+                      <div>
+                        <div className="flex items-center gap-2 md:hidden mb-2">
+                          <item.icon className="w-4 h-4 text-accent" />
+                          <span className="font-mono text-xs font-bold text-accent uppercase tracking-wider">
+                            {item.subtitle}
+                          </span>
+                        </div>
+                        <h3 className="font-display text-xl font-bold text-slate-900 group-hover:text-accent transition-colors">
+                          {item.title}
+                        </h3>
                       </div>
-                      <h3 className="font-display text-lg md:text-xl font-bold text-slate-800 mb-2 md:mb-3">
-                        {item.title}
-                      </h3>
-                      <p className="text-[0.85rem] text-slate-600 leading-[1.7] font-medium mb-5">
+
+                      <p className="text-slate-600 text-[0.95rem] leading-relaxed font-medium">
                         {item.description}
                       </p>
                       
@@ -177,6 +181,15 @@ export default function JourneyPage() {
               </Reveal>
             ))}
           </div>
+
+          <nav aria-label="Journey Footer Links" className="mt-20 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-sm font-bold">
+            <Link href="/#projects" className="text-slate-600 hover:text-accent transition-colors">
+              ← Explore Project Case Studies
+            </Link>
+            <Link href="/contact" className="text-accent hover:underline">
+              Get in Touch with Prince Asodariya →
+            </Link>
+          </nav>
         </div>
       </main>
       <Footer />

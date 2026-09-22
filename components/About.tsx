@@ -37,16 +37,10 @@ export default function About() {
         <div className="mt-14 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
           <Reveal delay={100}>
             <p className="text-[clamp(1.05rem,1.3vw,1.2rem)] leading-[1.65] text-text-secondary">
-              I&apos;m a MERN Stack Developer passionate about building robust,
-              scalable, and user-focused web applications from frontend to
-              backend. I enjoy architecting seamless full-stack digital
-              experiences while continuously learning modern technologies.
+              I&apos;m Prince Asodariya, a MERN Stack Developer &amp; Full-Stack Developer based in Gujarat, India (near Ahmedabad). I am passionate about building robust, scalable, and user-focused web applications from frontend to backend.
             </p>
             <p className="mt-6 text-[clamp(0.95rem,1vw,1.0625rem)] leading-[1.7] text-text-secondary">
-              I specialize in building end-to-end applications using MongoDB,
-              Express.js, React, and Node.js — architecting scalable backend
-              APIs, designing seamless database schemas, and crafting dynamic,
-              high-performance user interfaces.
+              As a software developer specializing in MongoDB, Express.js, React, Node.js, Next.js, and TypeScript, I focus on architecting scalable backend APIs, designing seamless database schemas, and crafting dynamic, high-performance user interfaces. Whether acting as a React Developer, Node.js Developer, or Full-Stack Developer in Ahmedabad / Gujarat, I deliver clean, production-ready web engineering solutions.
             </p>
             <p className="mt-4 text-[clamp(0.95rem,1vw,1.0625rem)] leading-[1.7] text-text-secondary">
               When I&apos;m not coding, I enjoy drawing, bike riding, watching

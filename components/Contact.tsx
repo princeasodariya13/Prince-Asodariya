@@ -4,7 +4,6 @@ import { FormEvent, useState } from "react";
 import { profile } from "@/lib/data";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
-import Button from "./Button";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -82,9 +81,7 @@ export default function Contact() {
             <Reveal delay={50}>
               <div className="mt-8 lg:mt-10 bg-white/50 backdrop-blur-md rounded-2xl p-6 lg:p-0 lg:bg-transparent lg:backdrop-blur-none lg:border-none border border-slate-100 shadow-sm lg:shadow-none space-y-5 font-mono text-sm">
                 <p className="text-slate-600 text-[0.95rem] leading-relaxed mb-8">
-                  I&apos;m currently open to new opportunities. Whether you have
-                  a project in mind or just want to say hi — my inbox is always
-                  open.
+                  I&apos;m Prince Asodariya, a MERN Stack Developer &amp; Full-Stack Developer based in Gujarat, India (near Ahmedabad). Whether you are looking for a React Developer, Node.js Developer, Next.js Developer, or full-stack software engineer for a project or engineering role — my inbox is always open.
                 </p>
                 <div className="flex flex-col gap-4">
                   <a

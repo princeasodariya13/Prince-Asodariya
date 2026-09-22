@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -40,6 +41,14 @@ export default function ContactPage() {
       <Navbar />
       <main className="pt-24 min-h-screen bg-[#fcfcfc]">
         <h1 className="sr-only">Contact Prince Asodariya — MERN Stack &amp; Full-Stack Developer</h1>
+        <div className="w-full max-w-[1180px] mx-auto px-[clamp(1.25rem,5vw,5rem)] pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs font-bold text-slate-500">
+          <Link href="/" className="hover:text-accent transition-colors">
+            ← Return to Main Portfolio
+          </Link>
+          <Link href="/journey" className="hover:text-accent transition-colors">
+            View Development Journey →
+          </Link>
+        </div>
         <Contact />
       </main>
       <Footer />

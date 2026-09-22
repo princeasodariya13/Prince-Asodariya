@@ -924,9 +924,9 @@ export const education: EducationEntry[] = [
 
 export const profile = {
   name: "Prince Asodariya",
-  role: "MERN / Full-Stack Developer",
+  role: "MERN Stack & Full-Stack Developer",
   tagline:
-    "I specialize in building end-to-end web applications using the MERN stack — architecting scalable APIs, designing seamless database schemas, and crafting high-performance user interfaces.",
+    "I specialize in building full-stack web applications using the MERN stack — React, Node.js, Next.js, TypeScript, and MongoDB. As a Full-Stack Developer based in Gujarat, India (near Ahmedabad), I architect scalable APIs, design efficient database schemas, and craft high-performance user interfaces.",
   location: "Gujarat, India",
   email: "princeasodariya13@gmail.com",
   github: "https://github.com/princeasodariya13",
