@@ -5,21 +5,18 @@ import IndexRail from "@/components/IndexRail";
 
 const display = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
   variable: "--font-display",
   display: "swap",
 });
 
 const body = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
   variable: "--font-body",
   display: "swap",
 });
 
 const mono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["400", "500"],
   variable: "--font-mono",
   display: "swap",
 });
