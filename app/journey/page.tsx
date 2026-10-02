@@ -122,50 +122,55 @@ export default function JourneyPage() {
             </div>
           </Reveal>
 
-          <div className="relative md:ml-[140px] space-y-12 mt-12 md:mt-24">
+          <div className="relative space-y-8 md:space-y-12 mt-10 md:mt-20">
             {/* Continuous Gradient Line */}
-            <div className="absolute top-4 bottom-4 left-[23px] w-[3px] bg-gradient-to-b from-accent via-blue-500 to-emerald-500 rounded-full opacity-80" />
+            <div className="absolute top-5 bottom-5 left-[20px] md:left-[150px] -translate-x-1/2 w-[3px] bg-gradient-to-b from-accent via-blue-500 to-emerald-500 rounded-full opacity-80" />
 
             {journeyData.map((item, index) => (
               <Reveal key={item.year} delay={index * 100}>
-                <div className="relative flex flex-col md:flex-row gap-6 md:gap-10 group">
+                <div className="relative flex items-start gap-4 md:gap-8 group">
                   
-                  {/* Left Date / Year Column */}
-                  <div className="md:w-[120px] md:text-right shrink-0 flex md:block items-center gap-3">
-                    <span className="font-display text-2xl md:text-3xl font-black text-slate-900 group-hover:text-accent transition-colors">
+                  {/* Left Date / Year Column (Desktop) */}
+                  <div className="hidden md:flex flex-col items-end w-[120px] pt-2 shrink-0 text-right">
+                    <span className="font-display text-2xl lg:text-3xl font-black text-slate-900 group-hover:text-accent transition-colors leading-none">
                       {item.year}
                     </span>
-                    <span className="md:block font-mono text-[0.65rem] font-bold text-slate-400 uppercase tracking-wider">
+                    <span className="font-mono text-[0.65rem] font-bold text-slate-400 uppercase tracking-wider mt-1.5">
                       {item.subtitle}
                     </span>
                   </div>
 
                   {/* Icon Node on Timeline Line */}
-                  <div className="relative z-10 hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-white border-2 border-slate-200 text-slate-700 shadow-md group-hover:border-accent group-hover:text-accent group-hover:scale-110 transition-all duration-300">
-                    <item.icon className="w-5 h-5" />
+                  <div className="relative z-10 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border-2 border-slate-200 text-slate-700 shadow-md group-hover:border-accent group-hover:text-accent group-hover:scale-110 transition-all duration-300 shrink-0 mt-1 md:mt-0">
+                    <item.icon className="w-4 h-4 md:w-5 md:h-5" />
                   </div>
 
                   {/* Content Card */}
-                  <div className="flex-1 bg-white border border-slate-200/80 rounded-2xl p-6 md:p-8 shadow-sm group-hover:shadow-md group-hover:border-accent/30 transition-all duration-300">
-                    <div className="flex flex-col gap-4">
+                  <div className="flex-1 min-w-0 bg-white border border-slate-200/80 rounded-2xl p-5 md:p-8 shadow-sm group-hover:shadow-md group-hover:border-accent/30 transition-all duration-300">
+                    <div className="flex flex-col gap-3 md:gap-4">
+                      
+                      {/* Mobile Year & Subtitle Header */}
+                      <div className="flex md:hidden items-center justify-between gap-2 pb-2 border-b border-slate-100">
+                        <span className="font-display text-2xl font-black text-slate-900 group-hover:text-accent transition-colors">
+                          {item.year}
+                        </span>
+                        <span className="font-mono text-[0.65rem] font-bold text-accent uppercase tracking-wider bg-accent/5 px-2.5 py-1 rounded-full border border-accent/20">
+                          {item.subtitle}
+                        </span>
+                      </div>
+
                       <div>
-                        <div className="flex items-center gap-2 md:hidden mb-2">
-                          <item.icon className="w-4 h-4 text-accent" />
-                          <span className="font-mono text-xs font-bold text-accent uppercase tracking-wider">
-                            {item.subtitle}
-                          </span>
-                        </div>
-                        <h3 className="font-display text-xl font-bold text-slate-900 group-hover:text-accent transition-colors">
+                        <h3 className="font-display text-lg md:text-xl font-bold text-slate-900 group-hover:text-accent transition-colors">
                           {item.title}
                         </h3>
                       </div>
 
-                      <p className="text-slate-600 text-[0.95rem] leading-relaxed font-medium">
+                      <p className="text-slate-600 text-[0.9rem] md:text-[0.95rem] leading-relaxed font-medium">
                         {item.description}
                       </p>
                       
                       {/* Tech Stack Badges */}
-                      <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-100">
+                      <div className="flex flex-wrap gap-2 pt-3 md:pt-4 border-t border-slate-100">
                         {item.skills.map((skill) => (
                           <span 
                             key={skill}
