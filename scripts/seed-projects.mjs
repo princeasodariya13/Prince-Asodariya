@@ -23,6 +23,27 @@ if (!uri) {
 
 const projects = [
   {
+    id: "auralis",
+    title: "Auralis",
+    description:
+      "A high-performance, full-stack e-commerce ecosystem featuring a million-dollar aesthetic storefront and an enterprise-grade administrative control panel for premium urban audio equipment.",
+    techStack: ["React 19", "Vite", "Node.js", "Express.js", "MongoDB", "Mongoose", "JWT Auth", "Cloudinary"],
+    features: [
+      "Customer storefront with multi-filter dynamic catalog & instant skeleton loaders",
+      "Persistent shopping cart, wishlist & multi-step guest/customer checkout",
+      "Self-service customer hub: order tracking timeline, RMA returns & support desk",
+      "Enterprise Admin Suite: Executive KPI dashboard & visual revenue analytics",
+      "Product catalog CRUD with multi-file Cloudinary media uploader & stock logs",
+      "Order fulfillment center with tracking codes & packing slip generation",
+      "Automated background financial reconciliation & structured audit logging",
+    ],
+    githubUrl: "https://github.com/princeasodariya13/Auralis",
+    liveUrl: "https://auralis-store.vercel.app",
+    featured: true,
+    order: 0,
+    createdAt: new Date(),
+  },
+  {
     id: "smart-farming-india",
     title: "Smart Farming India",
     description:
@@ -92,8 +113,8 @@ const projects = [
       "Cloudinary-powered storage & CDN delivery",
       "One-click download in high-resolution formats",
     ],
-    githubUrl: "https://github.com/princeasodariya13",
-    liveUrl: "https://thumblify-7nxy.vercel.app/",
+    githubUrl: "https://github.com/princeasodariya13/Thumblify",
+    liveUrl: "https://thumblify-free.vercel.app",
     featured: false,
     order: 4,
     createdAt: new Date(),

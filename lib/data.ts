@@ -2,6 +2,145 @@ import { EducationEntry, ExperienceEntry, Project, SkillCategory } from "./types
 
 export const projects: (Project & { isPlaceholder?: boolean })[] = [
   {
+    id: "auralis",
+    title: "Auralis",
+    description:
+      "A high-performance, full-stack e-commerce ecosystem featuring a million-dollar aesthetic storefront and an enterprise-grade administrative control panel for premium urban audio equipment.",
+    techStack: ["React 19", "Vite", "Node.js", "Express.js", "MongoDB", "Mongoose", "JWT Auth", "Cloudinary"],
+    features: [
+      "Customer storefront with multi-filter dynamic catalog & instant skeleton loaders",
+      "Persistent shopping cart, wishlist & multi-step guest/customer checkout",
+      "Self-service customer hub: order tracking timeline, RMA returns & support desk",
+      "Enterprise Admin Suite: Executive KPI dashboard & visual revenue analytics",
+      "Product catalog CRUD with multi-file Cloudinary media uploader & stock logs",
+      "Order fulfillment center with tracking codes & packing slip generation",
+      "Automated background financial reconciliation & structured audit logging",
+    ],
+    githubUrl: "https://github.com/princeasodariya13/Auralis",
+    liveUrl: "https://auralis-store.vercel.app",
+    image: "/projects/auralis.png",
+    featured: true,
+    purpose:
+      "Standard e-commerce templates fail in two key areas: uninspired generic customer storefronts that fail to drive high-ticket electronics conversions, and fragmented back-office operations relying on disconnected third-party plugins for inventory, returns, and support. Auralis was architected to solve both by delivering an immersive, hardware-accelerated storefront paired with a unified enterprise operations suite.",
+    workflow: [
+      "Customers explore audio products using real-time multi-filter search, adding items to persistent cart/wishlist with instant state synchronization.",
+      "Shoppers complete a streamlined multi-step checkout with coupon validation and automated address verification.",
+      "Customers track live shipment milestones, file RMA return requests, or open multi-threaded support tickets from their self-service portal.",
+      "Store administrators oversee executive KPI dashboards, fulfill orders, process RMA refunds, inspect audit trails, and run automated inventory reconciliation.",
+    ],
+    impact:
+      "Delivers a 100% unified, end-to-end e-commerce ecosystem replacing 5+ third-party SaaS plugins — eliminating recurring administrative costs, streamlining inventory-to-fulfillment pipelines, and achieving a 95+ Google Lighthouse score.",
+    architecture: [
+      {
+        title: "Frontend Client Architecture",
+        description:
+          "React 19 powered by Vite for lightning-fast HMR and optimized production chunks. Uses React Router 7 for route isolation between customer storefronts and protected administrative management portals.",
+      },
+      {
+        title: "RESTful Server API",
+        description:
+          "Modular Node.js and Express.js backend with structured controllers, route guards, express-rate-limit protection, and custom asynchronous service abstractions.",
+      },
+      {
+        title: "Database & Cloud Storage",
+        description:
+          "MongoDB Atlas cluster with strict Mongoose ORM schemas for relational e-commerce entities, coupled with Cloudinary SDK for automated image transformations and CDN delivery.",
+      },
+      {
+        title: "State & Data Layer",
+        description:
+          "Multi-Context architecture (AuthContext, CartContext, WishlistContext, ToastContext) managing global application state with seamless localStorage hydration.",
+      },
+    ],
+    deepDive: {
+      title: "Dual-Layer RBAC & Automated Audit Trail Engine",
+      architecture: "JWT Bearer Authentication with Middleware Guard Pipeline & Change Diff Logging",
+      methodology:
+        "Engineered secure bearer token verification with Bcrypt password hashing. Every sensitive administrative mutation automatically triggers an immutable AuditLog transaction capturing actor ID, action type, IP address, timestamp, and entity diffs.",
+      dataset:
+        "High-volume product catalogs, customer transaction histories, shipment tracking timelines, and structured operational audit logs.",
+      pipeline: [
+        "User authentication verified via JWT payload & Bcrypt credential matching",
+        "Express middleware (protect, admin) validates role privileges before controller execution",
+        "Transactional mutations logged to MongoDB AuditLog collection with metadata diffs",
+        "Automated reconciliation worker verifies order settlements against inventory levels",
+      ],
+      metrics: [
+        { label: "LIGHTHOUSE SCORE", value: "95+" },
+        { label: "OPERATIONAL COVERAGE", value: "100%" },
+      ],
+    },
+    challenges: [
+      {
+        problem: "Fragmented multi-tool administrative overhead",
+        solution:
+          "Engineered an all-in-one back-office control panel combining catalog management, order fulfillment, returns processing, support desk, and coupon engines into a single dashboard.",
+      },
+      {
+        problem: "Maintaining sub-pixel UI fidelity without heavy CSS frameworks",
+        solution:
+          "Designed a bespoke Vanilla CSS design system using HSL color tokens, dark mode elevation layers, glassmorphic cards, and GPU-accelerated micro-animations.",
+      },
+      {
+        problem: "Preventing silent inventory discrepancies and transaction anomalies",
+        solution:
+          "Built an automated background reconciliation service that reconciles processed orders against inventory stock logs and surfaces discrepancy flags.",
+      },
+    ],
+    coreFeatures: [
+      {
+        title: "Dynamic Customer Storefront",
+        description:
+          "Multi-filter catalog (Category, Price Range, Search query) with responsive pagination, skeleton loaders, and interactive product showcases.",
+      },
+      {
+        title: "Cart & Wishlist Engine",
+        description:
+          "Persistent shopping cart and wishlist management with real-time price calculations, coupon code discounts, and inventory quantity validation.",
+      },
+      {
+        title: "Customer Self-Service Hub",
+        description:
+          "End-to-end order tracking with visual shipment timelines, RMA return request processing, multi-threaded support tickets, and loyalty reward points.",
+      },
+      {
+        title: "Enterprise Admin Operations",
+        description:
+          "Executive KPI dashboard with revenue charts, full product catalog CRUD, Cloudinary multi-image uploader, and inventory stock adjustment tracking.",
+      },
+      {
+        title: "Order Fulfillment & RMA Returns",
+        description:
+          "Carrier tracking code assignment, packing slip generation, customer return inspection workflows, and automated inventory re-stocking.",
+      },
+      {
+        title: "Audit Logging & Financial Reconciliation",
+        description:
+          "Comprehensive operational audit trail viewer with search filtering, anomaly detection, and automated order-to-inventory reconciliation.",
+      },
+    ],
+    results: {
+      headline: "A million-dollar urban audio storefront with enterprise operational control.",
+      description:
+        "Successfully unified customer purchasing experiences and back-office management into a single, high-performance MERN stack application, eliminating third-party SaaS dependency.",
+      metrics: ["95+ Lighthouse Score", "100% Unified Operations"],
+    },
+    learnings: {
+      learned:
+        "Mastered large-scale state coordination across multiple React contexts while maintaining crisp separation between transient client UI and persistent server databases.",
+      tradeoffs:
+        "Opted for a custom Vanilla CSS HSL token design system instead of Tailwind CSS to achieve pixel-perfect glassmorphism and lightweight bundle sizes.",
+      future:
+        "Integrate Webhook-based real-time carrier tracking updates from FedEx/DHL APIs and automated invoice PDF generation.",
+    },
+    techCategories: {
+      frontend: ["React 19", "Vite 7", "React Router 7", "Vanilla CSS", "Lucide React", "@vercel/analytics", "@vercel/speed-insights"],
+      backend: ["Node.js", "Express.js", "MongoDB", "Mongoose ORM", "JWT Authentication", "BcryptJS"],
+      ml: [],
+      tools: ["Cloudinary SDK", "Vercel", "Git", "GitHub", "Express Rate Limit"],
+    },
+  },
+  {
     id: "provia",
     title: "Provia",
     description:
@@ -580,7 +719,7 @@ export const projects: (Project & { isPlaceholder?: boolean })[] = [
       "One-click download in high-resolution formats",
     ],
     githubUrl: "https://github.com/princeasodariya13",
-    liveUrl: "https://thumblify-7nxy.vercel.app/",
+    liveUrl: "https://thumblify-free.vercel.app",
     image: "/projects/thumblify-v2.png",
     purpose: "To solve the massive bottleneck content creators face: thumbnail design. Thumblify leverages cutting-edge generative AI to turn basic video concepts into highly clickable, professional YouTube thumbnails in seconds, eliminating the need for expensive design software.",
     workflow: [
